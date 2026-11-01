@@ -1,5 +1,15 @@
 # Terraform Commands — Enterprise IaC and Cluster Deployment Templates
 
+## Offline use and automatic vendor reviews
+
+- **[Offline overview](OFFLINE-OVERVIEW.md)** — conceptual guide and safety workflow available without ChatGPT.
+- **[Complete local command reference](offline-reference/README.md)** — locally stored command-by-command explanations and syntax from the runbooks.
+- **[Vendor change dashboard](vendor-watch/STATUS.md)** and **[proposed changes](vendor-watch/CHANGES.md)** — show monitored release/command review candidates.
+- **[Weekly update workflow](.github/workflows/offline-and-vendor-watch.yml)** — rebuilds offline docs and checks vendor references each Monday; raises a review-only GitHub PR if workflow permissions permit. It never silently replaces vendor commands.
+
+**For fully offline access, clone this repository or download its ZIP in advance.** ChatGPT explanation links are optional; the local Markdown command reference works without them.
+
+
 Production-oriented Terraform command reference, with individual ChatGPT explanations, cloud infrastructure starter configurations, kubeadm HA setup and OpenShift Installer inputs.
 
 > 🟢 Review/validate first. 🟠 Apply is a production change. 🔴 Never commit state, real tfvars, cloud credentials, Red Hat pull secrets, kubeconfigs or customer topology.
