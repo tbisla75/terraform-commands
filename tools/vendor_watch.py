@@ -4,7 +4,7 @@ No vendor commands are executed and no production runbook is rewritten automatic
 Updates vendor-watch/{STATUS,CHANGES,last-seen}. GitHub Actions opens an approval PR.
 """
 from __future__ import annotations
-import datetime, hashlib, json, os, pathlib, urllib.request, urllib.error
+import datetime, hashlib, json, os, pathlib, re, urllib.request, urllib.error
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DIR = ROOT / "vendor-watch"
 CONFIG = DIR / "sources.json"
@@ -31,7 +31,9 @@ def check_source(source):
         obj=json.loads(download(url).decode("utf-8"))
         version=obj.get("tag_name")
         if not version:raise RuntimeError("GitHub release missing tag_name")
-        return {"id":ident,"version":version,"url":obj.get("html_url",url),"published_at":obj.get("published_at",""),"source":url,"status":"OK"}
+        notes = obj.get("body") or ""
+        candidates = [line.strip(" -#*\\t")[:240] for line in notes.splitlines() if re.search(r"(?i)\\b(?:deprecated|removed|breaking|security|command|cli|flag|syntax|migration|upgrade)\\b", line)]
+        return {"id":ident,"version":version,"url":obj.get("html_url",url),"published_at":obj.get("published_at",""),"source":url,"status":"OK","candidate_notes":candidates[:12]}
     if kind=="text_marker":
         # Vendor pages can be dynamic/block automated traffic; do not treat failed checks as no changes.
         body=download(url,accept="text/html,text/plain,application/xml").decode("utf-8","replace")
@@ -91,6 +93,8 @@ def main():
                        f"- Previous observed: `{old.get('version','none') if old else 'none'}`",
                        f"- New observed: `{cur['version']}`",
                        f"- Vendor document: {cur['url']}",
+                       "- Upstream release-note lines mentioning CLI/security/breaking changes (unverified candidates):",
+                       *(("- "+line) for line in cur.get("candidate_notes",[]) if line),
                        f"- Action: inspect breaking changes, deprecations, flags, authentication, support matrix, examples; amend runbooks and re-generate offline catalog; obtain review.",
                        ""]
         for item,error in errors:
