@@ -1,5 +1,9 @@
 # Terraform Commands — Enterprise IaC and Cluster Deployment Templates
 
+## Start here — plain-English explanations (offline)
+
+**[Open the simplified command-by-command guide](offline-simple/README.md).** Every command is shown with a practical explanation of what it does on this platform, why you would run it, how to read its options and result, and whether it changes production. This is the recommended starting point if ChatGPT is offline. The original advanced explanations remain under [`offline-reference/`](offline-reference/README.md).
+
 ## Offline use and automatic vendor reviews
 
 - **[Offline overview](OFFLINE-OVERVIEW.md)** — conceptual guide and safety workflow available without ChatGPT.
