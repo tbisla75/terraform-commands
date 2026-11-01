@@ -263,9 +263,22 @@ def render_record(typ,line,lang,text,n):
         h.extend([f"**Safety/rollback:** {ex['risktext']}{ex['sensitive']}",f"**Expected result:** {ex['meaning']} Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.",f"**Offline verification:** On target host use `{ex['tool']}` vendor manual or installed `--help`; [online vendor reference]({ex['ref']}).",""])
         return "\n".join(h)
     if typ == "hcl":
-        kind, *args=text.split()
-        return f"### {n}. Terraform {kind}: `{md(' '.join(args))}`\n\n**Source line:** {line}. **Purpose:** Declare a {kind} object. Terraform validates provider schema, references, lifecycle and policy during `terraform validate`/`plan`; runtime behavior depends on provider version. **Safety:** No changes occur until an approved apply, except some data sources may query external APIs during planning. Consult the configured provider docs and validate all arguments offline from provider schema.\n"
-    return f"### {n}. Configuration example ({lang})\n\n**Source line:** {line}. **Purpose:** Define declarative settings rather than a standalone command. Review image references, identity, network addresses, permissions, secrets, version-specific fields and application/recovery impact.\n\n```{lang}\n{text}\n```\n\n**Key syntax:** YAML/HCL fields map to release-specific APIs. Validate with the installed schema and run a dry-run or plan. **Safety:** Applying this snippet can change live infrastructure; no rollback is implied.\n"
+        kind, *args = text.split()
+        return (
+            f"### {n}. Terraform {kind}: `{md(' '.join(args))}`\n\n"
+            f"**Source line:** {line}. **Purpose:** Declare a {kind} object. "
+            "Terraform validates provider schema, references and lifecycle during plan. "
+            "**Safety:** Real changes require an approved apply; data sources can query provider APIs during plan. "
+            "Confirm every resource argument against the installed provider schema.\n"
+        )
+    return (
+        f"### {n}. Configuration example ({lang})\n\n"
+        f"**Source line:** {line}. **Purpose:** Define declarative settings, not a standalone CLI command. "
+        "Review image references, identity, network addresses, permissions and secrets.\n\n"
+        f"```{lang}\n{text}\n```\n\n"
+        "**Syntax:** YAML/HCL keys and indentation map to release-specific APIs. "
+        "**Safety:** Applying may change live infrastructure; validate schema, diff and recovery first.\n"
+    )
 
 def write():
     OUT.mkdir(exist_ok=True)
