@@ -225,20 +225,40 @@ def extract_shell(lines,start,language):
     return result
 
 def extract_config(lines,start,language):
-    # Document the configuration object at block level; no arbitrary command execution.
-    content="\n".join(lines)
-    if not content.strip():return []
-    return [("config",start,language,content[:5000])]
+    # Each individual YAML key or Dockerfile directive gets a local offline explanation.
+    out=[]
+    for offset,line in enumerate(lines):
+        stripped=line.strip()
+        if not stripped or stripped.startswith("#"): continue
+        if language in {"yaml","yml"}:
+            match=re.match(r"^\s*-?\s*([A-Za-z_][A-Za-z0-9_.-]*):\s*(.*)$",line)
+            if match:
+                out.append(("config_field",start+offset,language,match.group(1)+" = "+match.group(2)))
+        elif language=="dockerfile":
+            match=re.match(r"^([A-Za-z]+)\s+(.+)$",stripped)
+            if match:
+                out.append(("config_field",start+offset,language,match.group(1)+" = "+match.group(2)))
+        else:
+            out.append(("config",start+offset,language,stripped[:1200]))
+    return out
 
 def extract_script(text):
     return extract_shell(text.splitlines(),1,"bash")
 
 def extract_hcl(text):
-    blocks=[]
+    # Document both Terraform declarations and each individual attribute.
+    out=[]
     for i,line in enumerate(text.splitlines(),1):
+        stripped=line.strip()
+        if not stripped or stripped.startswith("#") or stripped.startswith("//"):continue
         m=re.match(r'^\s*(resource|data|provider|module|variable|output)\s+"([^"]+)"(?:\s+"([^"]+)")?',line)
-        if m:blocks.append(("hcl",i,"hcl", " ".join(x for x in m.groups() if x)))
-    return blocks
+        if m:
+            out.append(("hcl",i,"hcl"," ".join(x for x in m.groups() if x)))
+            continue
+        m=re.match(r'^\s*([A-Za-z_][A-Za-z0-9_-]*)\s*=\s*(.+?)\s*(?:#.*)?$',line)
+        if m:
+            out.append(("hcl_field",i,"hcl",m.group(1)+" = "+m.group(2)))
+    return out
 
 def enumerate_sources():
     files=[]
@@ -262,6 +282,58 @@ def render_record(typ,line,lang,text,n):
         if ex["shell"]:h.append("**Shell syntax:** "+" ".join(ex["shell"]))
         h.extend([f"**Safety/rollback:** {ex['risktext']}{ex['sensitive']}",f"**Expected result:** {ex['meaning']} Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.",f"**Offline verification:** On target host use `{ex['tool']}` vendor manual or installed `--help`; [online vendor reference]({ex['ref']}).",""])
         return "\n".join(h)
+    if typ in ("hcl_field","config_field"):
+        key,_,value=text.partition(" = ")
+        help_text = {
+          "apiVersion":"API/schema version of the Kubernetes/OpenShift resource or installer config.",
+          "kind":"The resource type handled by the target API.",
+          "name":"Resource/cluster/host identity in the enclosing object.",
+          "replicas":"Desired count of worker, master or application instances; assess quorum/headroom.",
+          "image":"Container image; pin trusted registry and tested digest.",
+          "region":"Cloud region, availability and quota boundary.",
+          "network":"Cloud network/VPC or cluster network selector.",
+          "baseDomain":"DNS zone for OpenShift cluster API and application names.",
+          "pullSecret":"Sensitive Red Hat registry credential; NEVER commit a real value.",
+          "sshKey":"Public operator SSH key; never provide a private key.",
+          "runAsNonRoot":"Require container to start without root privileges.",
+          "allowPrivilegeEscalation":"Whether a process can gain additional privileges.",
+          "storageclass":"CSI storage class reference and backend provisioner policy.",
+          "node_count":"Desired node pool size; check zone and cost semantics.",
+          "desired_size":"Desired managed worker group size.",
+          "min_size":"Lower autoscaling bound; assess availability.",
+          "max_size":"Upper autoscaling bound; assess quota and costs.",
+          "subnet_ids":"Network subnet IDs for the resource; ensure AZ diversity.",
+          "clusterNetwork":"Pod overlay IP addresses; avoid overlap.",
+          "serviceNetwork":"Cluster Service IP pool; avoid overlap.",
+          "apiVIPs":"OpenShift control-plane API virtual IP.",
+          "ingressVIPs":"OpenShift ingress/router virtual IP.",
+          "machineNetwork":"CIDR of physical/VM machines.",
+          "macAddress":"Physical NIC hardware address; must match actual node.",
+          "rootDeviceHints":"Target boot disk selector; wrong values can wipe another drive.",
+          "rendezvousIP":"Agent-based bootstrap rendezvous endpoint.",
+          "endpoint_public_access":"Whether control-plane API is exposed publicly.",
+          "kubernetes_version":"Pinned target Kubernetes version supported by provider and region.",
+          "kubernetesVersion":"Requested kubeadm cluster version.",
+          "controlPlaneEndpoint":"Stable HA load balancer endpoint for Kubernetes API.",
+          "role":"Selected node role or permissions context.",
+          "port":"Port number exposed by service/load balancer.",
+          "targetPort":"Destination port forwarded to the container.",
+          "containerPort":"Container advertised listening port.",
+          "termination":"TLS termination behavior and certificate management.",
+          "schedule":"Cron or workload schedule; timezone/period must be verified.",
+          "projectID":"Google Cloud project and IAM/billing boundary.",
+          "vnet_subnet_id":"Azure VNet subnet resource ID.",
+          "source":"Terraform provider source/repository identifier.",
+          "version":"Version constraint or pinned version; check compatibility.",
+        }.get(key,"A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.")
+        return (
+            f"### {n}. Configuration field {key}\n\n"
+            f"**Source line:** {line}. **Language:** {lang}. **Full syntax:** {text}\n\n"
+            f"**What it does:** {help_text}\n\n"
+            "**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. "
+            "**Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. "
+            "Do not assume this syntax exists on older releases.\n"
+        )
     if typ == "hcl":
         kind, *args = text.split()
         return (
