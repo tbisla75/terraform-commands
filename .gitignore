@@ -1,0 +1,31 @@
+# Terraform — local state and secrets
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+tfplan
+*.tfvars
+!*.tfvars.example
+*.auto.tfvars
+*.tfvars.json
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+# OpenShift credentials/install artifacts
+**/auth/
+**/.openshift_install*
+**/bootstrap.ign
+**/master.ign
+**/worker.ign
+**/install-config.yaml
+**/agent-config.yaml
+*.kubeconfig
+kubeconfig
+*.pem
+*.key
+.env
+.env.*
+!.env.example
