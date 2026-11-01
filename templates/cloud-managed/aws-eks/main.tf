@@ -11,7 +11,10 @@ variable "region" { type = string }
 variable "cluster_name" { type = string }
 variable "subnet_ids" {
   type = list(string)
-  validation { condition = length(var.subnet_ids) >= 2 error_message = "Specify >=2 private subnets in different AZs." }
+  validation {
+    condition = length(var.subnet_ids) >= 2
+    error_message = "Specify >=2 private subnets in different AZs."
+  }
 }
 variable "kubernetes_version" { type = string }
 variable "node_instance_types" { type = list(string) default = ["m6i.large"] }
