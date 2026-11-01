@@ -6,3 +6,4 @@ subnetwork = "projects/YOUR_GCP_PROJECT/regions/europe-west6/subnetworks/gke-pri
 pods_secondary_range_name = "pods"
 services_secondary_range_name = "services"
 release_channel = "REGULAR"
+authorized_admin_cidrs = ["198.51.100.0/24"] # REPLACE with actual secured VPN egress IPs
