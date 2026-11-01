@@ -29,7 +29,7 @@ terraform apply tfplan
 - Private APIs (EKS and AKS examples); cloud client needs VPN, VNet connectivity or bastion.
 - EKS: configure EBS CSI with Pod Identity/IRSA and appropriate IAM; managed addons, encrypted disks and node access policy; add EKS access entries/role mapping for operators.
 - AKS: adjust node zone configuration to actual region, ensure cluster identity permissions on existing subnet and suitable private DNS configuration.
-- GKE: example private nodes with public control endpoint; restrict master authorized networks / switch to private endpoint according to access design. **Do not expose administrative API without IP restrictions**, even though IAM still applies.
+- GKE: example private nodes with public control endpoint restricted by approved master authorized networks. Replace the example CIDR and supply a dedicated least-privileged node service account (not default Compute Engine identity); consider private control endpoint for stricter requirements. **Do not expose administrative API without IP restrictions**, even though IAM still applies.
 - Protect Terraform state in encrypted, locked, access-controlled backend; never commit it. Define `prevent_destroy`/deletion protection and DR restoration strategy as relevant.
 - For production: policy/scanning and GitLab MR plan gate; apply only through protected approval, then bootstrap Argo CD and backup.
 
