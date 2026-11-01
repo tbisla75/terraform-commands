@@ -1,0 +1,5 @@
+region = "eu-central-1"
+cluster_name = "enterprise-eks"
+kubernetes_version = "REPLACE_WITH_SUPPORTED_EKS_VERSION"
+subnet_ids = ["subnet-PRIVATE_A", "subnet-PRIVATE_B", "subnet-PRIVATE_C"]
+node_instance_types = ["m6i.large"]
