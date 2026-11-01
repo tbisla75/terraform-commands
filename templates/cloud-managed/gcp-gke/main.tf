@@ -32,6 +32,15 @@ resource "google_container_cluster" "this" {
     enable_private_endpoint = false
     master_ipv4_cidr_block = "172.16.0.0/28" # must not overlap VPC/on-prem routes
   }
+  master_authorized_networks_config {
+    dynamic "cidr_blocks" {
+      for_each = var.authorized_admin_cidrs
+      content {
+        cidr_block   = cidr_blocks.value
+        display_name = "approved-administrator"
+      }
+    }
+  }
   workload_identity_config {
     workload_pool = "${var.project_id}.svc.id.goog"
   }
