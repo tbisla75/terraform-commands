@@ -21,6 +21,7 @@ variable "release_channel" {
   default = "REGULAR"
 }
 variable "authorized_admin_cidrs" { type = list(string) }
+variable "node_service_account" { type = string }
 resource "google_container_cluster" "this" {
   name = var.cluster_name
   location = var.region
@@ -65,6 +66,7 @@ resource "google_container_node_pool" "apps" {
   }
   node_config {
     machine_type = "e2-standard-4"
+    service_account = var.node_service_account
     oauth_scopes = ["https://www.googleapis.com/auth/cloud-platform"]
     workload_metadata_config { mode = "GKE_METADATA" }
     shielded_instance_config {
