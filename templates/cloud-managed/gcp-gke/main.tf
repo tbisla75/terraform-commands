@@ -5,7 +5,10 @@ terraform {
     google = { source = "hashicorp/google", version = ">= 5.0, < 8.0" }
   }
 }
-provider "google" { project = var.project_id region = var.region }
+provider "google" {
+  project = var.project_id
+  region = var.region
+}
 variable "project_id" { type = string }
 variable "region" { type = string }
 variable "cluster_name" { type = string }
@@ -56,12 +59,18 @@ resource "google_container_node_pool" "apps" {
   cluster = google_container_cluster.this.name
   location = var.region
   node_count = 1 # per zone; 3 regional zones => 3 total nodes
-  management { auto_repair = true auto_upgrade = true }
+  management {
+    auto_repair = true
+    auto_upgrade = true
+  }
   node_config {
     machine_type = "e2-standard-4"
     oauth_scopes = ["https://www.googleapis.com/auth/cloud-platform"]
     workload_metadata_config { mode = "GKE_METADATA" }
-    shielded_instance_config { enable_secure_boot = true enable_integrity_monitoring = true }
+    shielded_instance_config {
+      enable_secure_boot = true
+      enable_integrity_monitoring = true
+    }
   }
 }
 output "cluster_name" { value = google_container_cluster.this.name }
