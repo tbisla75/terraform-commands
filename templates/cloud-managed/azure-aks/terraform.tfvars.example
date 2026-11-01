@@ -1,0 +1,7 @@
+subscription_id = "YOUR_SUBSCRIPTION_GUID"
+resource_group_name = "rg-platform-prod"
+location = "switzerlandnorth"
+cluster_name = "enterprise-aks"
+vnet_subnet_id = "/subscriptions/YOUR_SUBSCRIPTION_GUID/resourceGroups/rg-network/providers/Microsoft.Network/virtualNetworks/vnet-prod/subnets/aks"
+kubernetes_version = "REPLACE_WITH_SUPPORTED_AKS_VERSION"
+admin_group_object_ids = ["YOUR_ENTRA_ADMIN_GROUP_OBJECT_ID"]
