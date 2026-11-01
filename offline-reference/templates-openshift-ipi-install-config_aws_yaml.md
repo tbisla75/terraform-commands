@@ -1,128 +1,44 @@
-# Offline infrastructure template explanation: templates/openshift-ipi/install-config.aws.yaml
+# Offline command / configuration reference: `templates/openshift-ipi/install-config.aws.yaml`
 
-Source: [templates/openshift-ipi/install-config.aws.yaml](../templates/openshift-ipi/install-config.aws.yaml). These HCL/YAML settings have **no effect until an authorized provision/installer runs**. Review schema and provider compatibility with vendor documentation and obtain cost/change approval.
+Generated from repository source by `tools/build_offline_reference.py`. **1 items**. This copy works offline. No commands were executed.
 
-### 1. `apiVersion` = `v1`
+⚠️ **Version-aware reference, not a substitute for vendor docs.** Every individual command is preserved with purpose, flags, placeholders, expected output and risk. Ambiguous flags are marked as command-specific. Always verify flags against your installed CLI.
 
-**Source line:** 3. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Original file:** [`templates/openshift-ipi/install-config.aws.yaml`](../templates/openshift-ipi/install-config.aws.yaml)
 
-**Syntax:** key `apiVersion` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+### 1. Configuration example (yaml)
 
-### 2. `baseDomain` = `example.com`
+**Source line:** 1. **Purpose:** Define declarative settings, not a standalone CLI command. Review image references, identity, network addresses, permissions and secrets.
 
-**Source line:** 4. **Meaning:** Approved DNS root for cluster and API/app names.
+```yaml
+# OpenShift installer input template for AWS. Use selected supported OpenShift 4.x installer.
+# Rename to install-config.yaml inside a new protected install directory. Never commit real pullSecret/SSH keys.
+apiVersion: v1
+baseDomain: example.com
+metadata:
+  name: ocp-prod
+compute:
+- name: worker
+  replicas: 3
+controlPlane:
+  name: master
+  replicas: 3
+platform:
+  aws:
+    region: eu-central-1
+    # Use platform version supported private networking/network selection;
+    # installer will create infrastructure unless supplying existing VPC/subnets.
+networking:
+  networkType: OVNKubernetes
+  clusterNetwork:
+  - cidr: 10.128.0.0/14
+    hostPrefix: 23
+  serviceNetwork:
+  - 172.30.0.0/16
+pullSecret: 'REPLACE_WITH_VALID_REDHAT_PULL_SECRET_JSON'
+sshKey: 'ssh-ed25519 REPLACE_WITH_PUBLIC_KEY'
+publish: Internal
+```
 
-**Syntax:** key `baseDomain` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
-
-### 3. `metadata` = ``
-
-**Source line:** 5. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
-
-**Syntax:** key `metadata` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
-
-### 4. `name` = `ocp-prod`
-
-**Source line:** 6. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
-
-**Syntax:** key `name` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
-
-### 5. `compute` = ``
-
-**Source line:** 7. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
-
-**Syntax:** key `compute` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
-
-### 6. List item `- name: worker`
-
-**Meaning:** names a component in a YAML sequence, scoped by indentation. Confirm control-plane vs worker semantics before installing.
-
-### 7. `replicas` = `3`
-
-**Source line:** 9. **Meaning:** Number of instances; plan quorum/headroom.
-
-**Syntax:** key `replicas` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
-
-### 8. `controlPlane` = ``
-
-**Source line:** 10. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
-
-**Syntax:** key `controlPlane` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
-
-### 9. `name` = `master`
-
-**Source line:** 11. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
-
-**Syntax:** key `name` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
-
-### 10. `replicas` = `3`
-
-**Source line:** 12. **Meaning:** Number of instances; plan quorum/headroom.
-
-**Syntax:** key `replicas` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
-
-### 11. `platform` = ``
-
-**Source line:** 13. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
-
-**Syntax:** key `platform` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
-
-### 12. `aws` = ``
-
-**Source line:** 14. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
-
-**Syntax:** key `aws` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
-
-### 13. `region` = `eu-central-1`
-
-**Source line:** 15. **Meaning:** Cloud region in which resources are created.
-
-**Syntax:** key `region` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
-
-### 14. `networking` = ``
-
-**Source line:** 18. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
-
-**Syntax:** key `networking` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
-
-### 15. `networkType` = `OVNKubernetes`
-
-**Source line:** 19. **Meaning:** Cluster CNI networking type for target OpenShift release.
-
-**Syntax:** key `networkType` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
-
-### 16. `clusterNetwork` = ``
-
-**Source line:** 20. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
-
-**Syntax:** key `clusterNetwork` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
-
-### 17. `hostPrefix` = `23`
-
-**Source line:** 22. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
-
-**Syntax:** key `hostPrefix` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
-
-### 18. `serviceNetwork` = ``
-
-**Source line:** 23. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
-
-**Syntax:** key `serviceNetwork` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
-
-### 19. `pullSecret` = `'REPLACE_WITH_VALID_REDHAT_PULL_SECRET_JSON'`
-
-**Source line:** 25. **Meaning:** Sensitive Red Hat registry authentication; NEVER commit a real value.
-
-**Syntax:** key `pullSecret` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
-
-### 20. `sshKey` = `'ssh-ed25519 REPLACE_WITH_PUBLIC_KEY'`
-
-**Source line:** 26. **Meaning:** Public administrative SSH key (not private key).
-
-**Syntax:** key `sshKey` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
-
-### 21. `publish` = `Internal`
-
-**Source line:** 27. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
-
-**Syntax:** key `publish` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Syntax:** YAML/HCL keys and indentation map to release-specific APIs. **Safety:** Applying may change live infrastructure; validate schema, diff and recovery first.
 

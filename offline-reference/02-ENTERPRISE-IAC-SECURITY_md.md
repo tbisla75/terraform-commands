@@ -1,228 +1,291 @@
-# OFFLINE TERRAFORM / IAC REFERENCE: 02-ENTERPRISE-IAC-SECURITY.md
+# Offline command / configuration reference: `02-ENTERPRISE-IAC-SECURITY.md`
 
-Works locally without ChatGPT. Derived directly from [02-ENTERPRISE-IAC-SECURITY.md](../02-ENTERPRISE-IAC-SECURITY.md). Every available command includes syntax, state safety and intended output. Validate provider-specific options and release constraints before application.
+Generated from repository source by `tools/build_offline_reference.py`. **16 items**. This copy works offline. No commands were executed.
 
-## 1. terraform fmt -check -recursive
+⚠️ **Version-aware reference, not a substitute for vendor docs.** Every individual command is preserved with purpose, flags, placeholders, expected output and risk. Ambiguous flags are marked as command-specific. Always verify flags against your installed CLI.
+
+**Original file:** [`02-ENTERPRISE-IAC-SECURITY.md`](../02-ENTERPRISE-IAC-SECURITY.md)
+
+### 1. `terraform fmt -check -recursive`
+
+**Source line:** 10  |  **Tool/purpose:** Terraform infrastructure as code  |  **Impact:** **DIAGNOSTIC / REVIEW**
+
+**Exact command:**
 
 ```bash
 terraform fmt -check -recursive
 ```
 
-**Purpose:** Reformat/validate configuration formatting.
+**What it does:** Format Terraform config files (unless check-only mode).
 
-**Syntax:** `terraform` is the executable; `fmt` selects subcommand; trailing operands/flags choose target and behavior. `-check` = a CLI option; verify with installed help; `-recursive` = a CLI option; verify with installed help
+**Syntax:** terraform fmt -check -recursive. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-check` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `-recursive` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Format Terraform config files (unless check-only mode). Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Terraform infrastructure as code` vendor manual or installed `--help`; [online vendor reference](https://developer.hashicorp.com/terraform/cli/commands).
 
-**Expected output:** Reformat/validate configuration formatting. Compare with declared config and known backend state; do not expose plan output.
+### 2. `terraform init -backend=false`
 
-**Risk:** 🟢/🟠 Usually inspection or working-directory changes. State/outputs can include credentials.
+**Source line:** 11  |  **Tool/purpose:** Terraform infrastructure as code  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 2. terraform init -backend=false
+**Exact command:**
 
 ```bash
 terraform init -backend=false
 ```
 
-**Purpose:** Initialize provider modules and backend; downloads dependencies and may configure backend.
+**What it does:** Download/setup providers/modules and initialize backend; changes local working files.
 
-**Syntax:** `terraform` is the executable; `init` selects subcommand; trailing operands/flags choose target and behavior. `-backend=false` = a CLI option; verify with installed help
+**Syntax:** terraform init -backend=false. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-backend=false` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Download/setup providers/modules and initialize backend; changes local working files. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Terraform infrastructure as code` vendor manual or installed `--help`; [online vendor reference](https://developer.hashicorp.com/terraform/cli/commands).
 
-**Expected output:** Initialize provider modules and backend; downloads dependencies and may configure backend. Compare with declared config and known backend state; do not expose plan output.
+### 3. `terraform validate`
 
-**Risk:** 🟢/🟠 Usually inspection or working-directory changes. State/outputs can include credentials.
+**Source line:** 12  |  **Tool/purpose:** Terraform infrastructure as code  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 3. terraform validate
+**Exact command:**
 
 ```bash
 terraform validate
 ```
 
-**Purpose:** Statically validate Terraform configuration/schema.
+**What it does:** Check Terraform configuration syntax and type/schema consistency.
 
-**Syntax:** `terraform` is the executable; `validate` selects subcommand; trailing operands/flags choose target and behavior. No named options; inspect positional arguments.
+**Syntax:** terraform validate. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Check Terraform configuration syntax and type/schema consistency. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Terraform infrastructure as code` vendor manual or installed `--help`; [online vendor reference](https://developer.hashicorp.com/terraform/cli/commands).
 
-**Expected output:** Statically validate Terraform configuration/schema. Compare with declared config and known backend state; do not expose plan output.
+### 4. `terraform plan -lock-timeout=5m -out=tfplan`
 
-**Risk:** 🟢/🟠 Usually inspection or working-directory changes. State/outputs can include credentials.
+**Source line:** 13  |  **Tool/purpose:** Terraform infrastructure as code  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 4. terraform plan -lock-timeout=5m -out=tfplan
+**Exact command:**
 
 ```bash
 terraform plan -lock-timeout=5m -out=tfplan
 ```
 
-**Purpose:** Calculate infrastructure changes and store optional sensitive plan file.
+**What it does:** Compute proposed infrastructure change plan (typically does not mutate managed infrastructure).
 
-**Syntax:** `terraform` is the executable; `plan` selects subcommand; trailing operands/flags choose target and behavior. `-lock-timeout=5m` = a CLI option; verify with installed help; `-out=tfplan` = a CLI option; verify with installed help
+**Syntax:** terraform plan -lock-timeout=5m -out=tfplan. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-lock-timeout=5m` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Option:** `-out=tfplan` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Compute proposed infrastructure change plan (typically does not mutate managed infrastructure). Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Terraform infrastructure as code` vendor manual or installed `--help`; [online vendor reference](https://developer.hashicorp.com/terraform/cli/commands).
 
-**Expected output:** Calculate infrastructure changes and store optional sensitive plan file. Compare with declared config and known backend state; do not expose plan output.
+### 5. `terraform show -no-color tfplan`
 
-**Risk:** 🟢/🟠 Usually inspection or working-directory changes. State/outputs can include credentials.
+**Source line:** 14  |  **Tool/purpose:** Terraform infrastructure as code  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 5. terraform show -no-color tfplan
+**Exact command:**
 
 ```bash
 terraform show -no-color tfplan
 ```
 
-**Purpose:** Display state or saved plan; may contain secrets.
+**What it does:** Inspect, plan or reconcile declaratively managed infrastructure. State may be sensitive.
 
-**Syntax:** `terraform` is the executable; `show` selects subcommand; trailing operands/flags choose target and behavior. `-no-color` = a CLI option; verify with installed help
+**Syntax:** terraform show -no-color tfplan. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-no-color` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect, plan or reconcile declaratively managed infrastructure. State may be sensitive. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Terraform infrastructure as code` vendor manual or installed `--help`; [online vendor reference](https://developer.hashicorp.com/terraform/cli/commands).
 
-**Expected output:** Display state or saved plan; may contain secrets. Compare with declared config and known backend state; do not expose plan output.
+### 6. `trivy config .`
 
-**Risk:** 🟢/🟠 Usually inspection or working-directory changes. State/outputs can include credentials.
+**Source line:** 33  |  **Tool/purpose:** trivy operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 6. trivy config .
+**Exact command:**
 
 ```bash
 trivy config .
 ```
 
-**Purpose:** Shell/tool operation that prepares, inspects or automates infrastructure workflow.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** `trivy` is the executable; `config` selects subcommand; trailing operands/flags choose target and behavior. No named options; inspect positional arguments.
+**Syntax:** trivy config .. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `trivy operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Expected output:** Shell/tool operation that prepares, inspects or automates infrastructure workflow. Compare with declared config and known backend state; do not expose plan output.
+### 7. `checkov -d .`
 
-**Risk:** 🟢/🟠 Usually inspection or working-directory changes. State/outputs can include credentials.
+**Source line:** 34  |  **Tool/purpose:** checkov operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 7. checkov -d .
+**Exact command:**
 
 ```bash
 checkov -d .
 ```
 
-**Purpose:** Shell/tool operation that prepares, inspects or automates infrastructure workflow.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** `checkov` is the executable; `-d` selects subcommand; trailing operands/flags choose target and behavior. `-d` = a CLI option; verify with installed help
+**Syntax:** checkov -d .. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-d` — Disk/device or directory flag depending on command.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `checkov operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Expected output:** Shell/tool operation that prepares, inspects or automates infrastructure workflow. Compare with declared config and known backend state; do not expose plan output.
+### 8. `tflint --init`
 
-**Risk:** 🟢/🟠 Usually inspection or working-directory changes. State/outputs can include credentials.
+**Source line:** 35  |  **Tool/purpose:** tflint operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 8. tflint --init
+**Exact command:**
 
 ```bash
 tflint --init
 ```
 
-**Purpose:** Shell/tool operation that prepares, inspects or automates infrastructure workflow.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** `tflint` is the executable; `--init` selects subcommand; trailing operands/flags choose target and behavior. `--init` = a CLI option; verify with installed help
+**Syntax:** tflint --init. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--init` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `tflint operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Expected output:** Shell/tool operation that prepares, inspects or automates infrastructure workflow. Compare with declared config and known backend state; do not expose plan output.
+### 9. `tflint --recursive`
 
-**Risk:** 🟢/🟠 Usually inspection or working-directory changes. State/outputs can include credentials.
+**Source line:** 36  |  **Tool/purpose:** tflint operation  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 9. tflint --recursive
+**Exact command:**
 
 ```bash
 tflint --recursive
 ```
 
-**Purpose:** Shell/tool operation that prepares, inspects or automates infrastructure workflow.
+**What it does:** Command semantics depend on installed implementation; inspect its man page and --help.
 
-**Syntax:** `tflint` is the executable; `--recursive` selects subcommand; trailing operands/flags choose target and behavior. `--recursive` = a CLI option; verify with installed help
+**Syntax:** tflint --recursive. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `--recursive` — Traverse nested directories.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Command semantics depend on installed implementation; inspect its man page and --help. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `tflint operation` vendor manual or installed `--help`; [online vendor reference](https://man7.org/linux/man-pages/).
 
-**Expected output:** Shell/tool operation that prepares, inspects or automates infrastructure workflow. Compare with declared config and known backend state; do not expose plan output.
+### 10. `terraform providers`
 
-**Risk:** 🟢/🟠 Usually inspection or working-directory changes. State/outputs can include credentials.
+**Source line:** 37  |  **Tool/purpose:** Terraform infrastructure as code  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 10. terraform providers
+**Exact command:**
 
 ```bash
 terraform providers
 ```
 
-**Purpose:** Inspect provider dependencies and lockfile constraints.
+**What it does:** Inspect, plan or reconcile declaratively managed infrastructure. State may be sensitive.
 
-**Syntax:** `terraform` is the executable; `providers` selects subcommand; trailing operands/flags choose target and behavior. No named options; inspect positional arguments.
+**Syntax:** terraform providers. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect, plan or reconcile declaratively managed infrastructure. State may be sensitive. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Terraform infrastructure as code` vendor manual or installed `--help`; [online vendor reference](https://developer.hashicorp.com/terraform/cli/commands).
 
-**Expected output:** Inspect provider dependencies and lockfile constraints. Compare with declared config and known backend state; do not expose plan output.
+### 11. `terraform providers lock -platform=linux_amd64`
 
-**Risk:** 🟢/🟠 Usually inspection or working-directory changes. State/outputs can include credentials.
+**Source line:** 38  |  **Tool/purpose:** Terraform infrastructure as code  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 11. terraform providers lock -platform=linux_amd64
+**Exact command:**
 
 ```bash
 terraform providers lock -platform=linux_amd64
 ```
 
-**Purpose:** Inspect provider dependencies and lockfile constraints.
+**What it does:** Inspect, plan or reconcile declaratively managed infrastructure. State may be sensitive.
 
-**Syntax:** `terraform` is the executable; `providers` selects subcommand; trailing operands/flags choose target and behavior. `-platform=linux_amd64` = a CLI option; verify with installed help
+**Syntax:** terraform providers lock -platform=linux_amd64. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-platform=linux_amd64` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect, plan or reconcile declaratively managed infrastructure. State may be sensitive. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Terraform infrastructure as code` vendor manual or installed `--help`; [online vendor reference](https://developer.hashicorp.com/terraform/cli/commands).
 
-**Expected output:** Inspect provider dependencies and lockfile constraints. Compare with declared config and known backend state; do not expose plan output.
+### 12. `terraform plan -refresh-only`
 
-**Risk:** 🟢/🟠 Usually inspection or working-directory changes. State/outputs can include credentials.
+**Source line:** 58  |  **Tool/purpose:** Terraform infrastructure as code  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 12. terraform plan -refresh-only
+**Exact command:**
 
 ```bash
 terraform plan -refresh-only
 ```
 
-**Purpose:** Calculate infrastructure changes and store optional sensitive plan file.
+**What it does:** Compute proposed infrastructure change plan (typically does not mutate managed infrastructure).
 
-**Syntax:** `terraform` is the executable; `plan` selects subcommand; trailing operands/flags choose target and behavior. `-refresh-only` = a CLI option; verify with installed help
+**Syntax:** terraform plan -refresh-only. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Option:** `-refresh-only` — Command-specific option or abbreviated argument; verify with installed CLI help and vendor reference.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Compute proposed infrastructure change plan (typically does not mutate managed infrastructure). Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Terraform infrastructure as code` vendor manual or installed `--help`; [online vendor reference](https://developer.hashicorp.com/terraform/cli/commands).
 
-**Expected output:** Calculate infrastructure changes and store optional sensitive plan file. Compare with declared config and known backend state; do not expose plan output.
+### 13. `terraform state list`
 
-**Risk:** 🟢/🟠 Usually inspection or working-directory changes. State/outputs can include credentials.
+**Source line:** 59  |  **Tool/purpose:** Terraform infrastructure as code  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 13. terraform state list
+**Exact command:**
 
 ```bash
 terraform state list
 ```
 
-**Purpose:** Inspect or rewrite Terraform state depending on subcommand; potentially high-risk.
+**What it does:** Read or manipulate Terraform state; some subcommands are dangerous.
 
-**Syntax:** `terraform` is the executable; `state` selects subcommand; trailing operands/flags choose target and behavior. No named options; inspect positional arguments.
+**Syntax:** terraform state list. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Read or manipulate Terraform state; some subcommands are dangerous. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Terraform infrastructure as code` vendor manual or installed `--help`; [online vendor reference](https://developer.hashicorp.com/terraform/cli/commands).
 
-**Expected output:** Inspect or rewrite Terraform state depending on subcommand; potentially high-risk. Compare with declared config and known backend state; do not expose plan output.
+### 14. `terraform providers`
 
-**Risk:** 🟢/🟠 Usually inspection or working-directory changes. State/outputs can include credentials.
+**Source line:** 60  |  **Tool/purpose:** Terraform infrastructure as code  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 14. terraform providers
+**Exact command:**
 
 ```bash
 terraform providers
 ```
 
-**Purpose:** Inspect provider dependencies and lockfile constraints.
+**What it does:** Inspect, plan or reconcile declaratively managed infrastructure. State may be sensitive.
 
-**Syntax:** `terraform` is the executable; `providers` selects subcommand; trailing operands/flags choose target and behavior. No named options; inspect positional arguments.
+**Syntax:** terraform providers. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect, plan or reconcile declaratively managed infrastructure. State may be sensitive. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Terraform infrastructure as code` vendor manual or installed `--help`; [online vendor reference](https://developer.hashicorp.com/terraform/cli/commands).
 
-**Expected output:** Inspect provider dependencies and lockfile constraints. Compare with declared config and known backend state; do not expose plan output.
+### 15. `terraform validate`
 
-**Risk:** 🟢/🟠 Usually inspection or working-directory changes. State/outputs can include credentials.
+**Source line:** 61  |  **Tool/purpose:** Terraform infrastructure as code  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 15. terraform validate
+**Exact command:**
 
 ```bash
 terraform validate
 ```
 
-**Purpose:** Statically validate Terraform configuration/schema.
+**What it does:** Check Terraform configuration syntax and type/schema consistency.
 
-**Syntax:** `terraform` is the executable; `validate` selects subcommand; trailing operands/flags choose target and behavior. No named options; inspect positional arguments.
+**Syntax:** terraform validate. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Check Terraform configuration syntax and type/schema consistency. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Terraform infrastructure as code` vendor manual or installed `--help`; [online vendor reference](https://developer.hashicorp.com/terraform/cli/commands).
 
-**Expected output:** Statically validate Terraform configuration/schema. Compare with declared config and known backend state; do not expose plan output.
+### 16. `terraform graph`
 
-**Risk:** 🟢/🟠 Usually inspection or working-directory changes. State/outputs can include credentials.
+**Source line:** 62  |  **Tool/purpose:** Terraform infrastructure as code  |  **Impact:** **DIAGNOSTIC / REVIEW**
 
-## 16. terraform graph
+**Exact command:**
 
 ```bash
 terraform graph
 ```
 
-**Purpose:** Render dependency graph.
+**What it does:** Inspect, plan or reconcile declaratively managed infrastructure. State may be sensitive.
 
-**Syntax:** `terraform` is the executable; `graph` selects subcommand; trailing operands/flags choose target and behavior. No named options; inspect positional arguments.
-
-**Expected output:** Render dependency graph. Compare with declared config and known backend state; do not expose plan output.
-
-**Risk:** 🟢/🟠 Usually inspection or working-directory changes. State/outputs can include credentials.
+**Syntax:** terraform graph. The first executable selects the CLI; subcommands select the resource/action; options control target, scope or output.
+**Safety/rollback:** Typically query-oriented; may still cause network traffic, load or output sensitive information.
+**Expected result:** Inspect, plan or reconcile declaratively managed infrastructure. State may be sensitive. Check command exit status and compare to healthy baseline; exact columns and messages vary by installed version.
+**Offline verification:** On target host use `Terraform infrastructure as code` vendor manual or installed `--help`; [online vendor reference](https://developer.hashicorp.com/terraform/cli/commands).
 
