@@ -5,6 +5,7 @@
 - **[Offline overview](OFFLINE-OVERVIEW.md)** — conceptual guide and safety workflow available without ChatGPT.
 - **[Complete local command reference](offline-reference/README.md)** — locally stored command-by-command explanations and syntax from the runbooks.
 - **[Vendor change dashboard](vendor-watch/STATUS.md)** and **[proposed changes](vendor-watch/CHANGES.md)** — show monitored release/command review candidates.
+- **[Current vendor baseline and regenerated offline docs — draft PR #1](https://github.com/tbisla75/terraform-commands/pull/1)** — review the actual detected release notes and file diffs before merging.
 - **[Weekly update workflow](.github/workflows/offline-and-vendor-watch.yml)** — rebuilds offline docs and checks vendor references each Monday; raises a review-only GitHub PR if workflow permissions permit. It never silently replaces vendor commands.
 
 **For fully offline access, clone this repository or download its ZIP in advance.** ChatGPT explanation links are optional; the local Markdown command reference works without them.
