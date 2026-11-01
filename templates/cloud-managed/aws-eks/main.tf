@@ -25,13 +25,19 @@ data "aws_caller_identity" "current" {}
 data "aws_iam_policy_document" "eks_assume" {
   statement {
     actions = ["sts:AssumeRole"]
-    principals { type = "Service" identifiers = ["eks.amazonaws.com"] }
+    principals {
+      type = "Service"
+      identifiers = ["eks.amazonaws.com"]
+    }
   }
 }
 data "aws_iam_policy_document" "node_assume" {
   statement {
     actions = ["sts:AssumeRole"]
-    principals { type = "Service" identifiers = ["ec2.amazonaws.com"] }
+    principals {
+      type = "Service"
+      identifiers = ["ec2.amazonaws.com"]
+    }
   }
 }
 resource "aws_iam_role" "cluster" {
@@ -85,7 +91,11 @@ resource "aws_eks_node_group" "workers" {
   node_role_arn = aws_iam_role.node.arn
   subnet_ids = var.subnet_ids
   instance_types = var.node_instance_types
-  scaling_config { desired_size = 3 min_size = 3 max_size = 6 }
+  scaling_config {
+    desired_size = 3
+    min_size = 3
+    max_size = 6
+  }
   update_config { max_unavailable = 1 }
   depends_on = [aws_iam_role_policy_attachment.worker, aws_iam_role_policy_attachment.registry]
 }
