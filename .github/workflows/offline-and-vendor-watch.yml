@@ -1,10 +1,6 @@
 name: Weekly offline docs and vendor change review
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - 'tools/**'
-      - 'vendor-watch/sources.json'
   schedule:
     - cron: '17 5 * * 1'
 permissions:
