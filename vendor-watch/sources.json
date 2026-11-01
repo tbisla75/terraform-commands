@@ -1,0 +1,29 @@
+{
+  "notice": "Monitoring only; latest does not mean compatible with current customer version. Vendor checks must be reviewed.",
+  "sources": [
+    {
+      "id": "terraform",
+      "label": "Terraform CLI releases",
+      "kind": "github_release",
+      "url": "https://api.github.com/repos/hashicorp/terraform/releases/latest"
+    },
+    {
+      "id": "aws-provider",
+      "label": "Terraform AWS provider releases",
+      "kind": "github_release",
+      "url": "https://api.github.com/repos/hashicorp/terraform-provider-aws/releases/latest"
+    },
+    {
+      "id": "azurerm-provider",
+      "label": "Terraform AzureRM provider releases",
+      "kind": "github_release",
+      "url": "https://api.github.com/repos/hashicorp/terraform-provider-azurerm/releases/latest"
+    },
+    {
+      "id": "google-provider",
+      "label": "Terraform Google provider releases",
+      "kind": "github_release",
+      "url": "https://api.github.com/repos/hashicorp/terraform-provider-google/releases/latest"
+    }
+  ]
+}
