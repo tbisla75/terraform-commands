@@ -32,7 +32,7 @@ def check_source(source):
         version=obj.get("tag_name")
         if not version:raise RuntimeError("GitHub release missing tag_name")
         notes = obj.get("body") or ""
-        candidates = [line.strip(" -#*\\t")[:240] for line in notes.splitlines() if re.search(r"(?i)\\b(?:deprecated|removed|breaking|security|command|cli|flag|syntax|migration|upgrade)\\b", line)]
+        candidates = [line.strip(" -#*\\t")[:240] for line in notes.splitlines() if re.search(r"(?i)\b(?:deprecated|removed|breaking|security|command|cli|flag|syntax|migration|upgrade)\b", line)]
         return {"id":ident,"version":version,"url":obj.get("html_url",url),"published_at":obj.get("published_at",""),"source":url,"status":"OK","candidate_notes":candidates[:12]}
     if kind=="text_marker":
         # Vendor pages can be dynamic/block automated traffic; do not treat failed checks as no changes.
