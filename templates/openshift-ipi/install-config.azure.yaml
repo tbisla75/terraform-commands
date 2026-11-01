@@ -1,0 +1,24 @@
+# OpenShift installer input template for Azure. Adapt region, resource permissions, DNS and Azure networking.
+apiVersion: v1
+baseDomain: example.com
+metadata:
+  name: ocp-prod
+compute:
+- name: worker
+  replicas: 3
+controlPlane:
+  name: master
+  replicas: 3
+platform:
+  azure:
+    region: westeurope
+networking:
+  networkType: OVNKubernetes
+  clusterNetwork:
+  - cidr: 10.128.0.0/14
+    hostPrefix: 23
+  serviceNetwork:
+  - 172.30.0.0/16
+pullSecret: 'REPLACE_WITH_VALID_REDHAT_PULL_SECRET_JSON'
+sshKey: 'ssh-ed25519 REPLACE_WITH_PUBLIC_KEY'
+publish: Internal
