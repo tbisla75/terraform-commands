@@ -37,7 +37,10 @@ resource "azurerm_kubernetes_cluster" "this" {
     upgrade_settings { max_surge = "33%" }
   }
   identity { type = "SystemAssigned" }
-  network_profile { network_plugin = "azure" network_plugin_mode = "overlay" }
+  network_profile {
+    network_plugin = "azure"
+    network_plugin_mode = "overlay"
+  }
   azure_active_directory_role_based_access_control {
     azure_rbac_enabled = true
     admin_group_object_ids = var.admin_group_object_ids
