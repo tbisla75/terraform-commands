@@ -1,0 +1,8 @@
+project_id = "YOUR_GCP_PROJECT"
+region = "europe-west6"
+cluster_name = "enterprise-gke"
+network = "projects/YOUR_GCP_PROJECT/global/networks/production-vpc"
+subnetwork = "projects/YOUR_GCP_PROJECT/regions/europe-west6/subnetworks/gke-private"
+pods_secondary_range_name = "pods"
+services_secondary_range_name = "services"
+release_channel = "REGULAR"
