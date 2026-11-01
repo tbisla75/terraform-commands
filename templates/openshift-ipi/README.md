@@ -27,6 +27,9 @@ oc get nodes -o wide
 
 ## Bare metal or VMware vSphere
 
+For a 3-control-plane + 3-worker agent-based **bare-metal example**, use [install-config.baremetal-agent.yaml](install-config.baremetal-agent.yaml) and [agent-config.baremetal.yaml](agent-config.baremetal.yaml). Replace every MAC, hostname, DHCP reservation, VIP, root disk, pull secret and public SSH key; the documentation-address IPs are deliberately not deployable. Run `openshift-install agent create image --dir=YOUR_PROTECTED_INSTALL_DIR` only with a reviewed supported installer release and both files in a secured directory; boot RHCOS agent ISO/PXE only after verifying the physical disks being overwritten.
+
+
 Use supported **agent-based / assisted / IPI / UPI** installation with RHCOS and Ignition. You need approved physical server firmware, BMC/IPMI/Redfish where applicable, ISO/PXE, API+ingress VIPs, etcd-sized SSDs, DNS/NTP, machine networks, ingress LB and storage CSI. Do not assume AWS/Azure/GCP install-config works on bare metal.
 
 ## Enterprise production acceptance
