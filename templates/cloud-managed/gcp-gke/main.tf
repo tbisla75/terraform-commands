@@ -13,7 +13,8 @@ variable "network" { type = string }
 variable "subnetwork" { type = string }
 variable "pods_secondary_range_name" { type = string }
 variable "services_secondary_range_name" { type = string }
-variable "release_channel" { type = string default = "REGULAR" }
+variable "release_channel" { type = string, default = "REGULAR" }
+variable "authorized_admin_cidrs" { type = list(string) }
 resource "google_container_cluster" "this" {
   name = var.cluster_name
   location = var.region
