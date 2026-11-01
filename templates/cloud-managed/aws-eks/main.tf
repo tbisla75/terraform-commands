@@ -17,7 +17,10 @@ variable "subnet_ids" {
   }
 }
 variable "kubernetes_version" { type = string }
-variable "node_instance_types" { type = list(string) default = ["m6i.large"] }
+variable "node_instance_types" {
+  type = list(string)
+  default = ["m6i.large"]
+}
 data "aws_caller_identity" "current" {}
 data "aws_iam_policy_document" "eks_assume" {
   statement {
