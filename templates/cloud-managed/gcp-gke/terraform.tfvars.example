@@ -7,3 +7,4 @@ pods_secondary_range_name = "pods"
 services_secondary_range_name = "services"
 release_channel = "REGULAR"
 authorized_admin_cidrs = ["198.51.100.0/24"] # REPLACE with actual secured VPN egress IPs
+node_service_account = "gke-nodes@YOUR_GCP_PROJECT.iam.gserviceaccount.com" # precreated minimal-role service account
