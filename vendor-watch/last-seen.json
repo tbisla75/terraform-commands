@@ -1,0 +1,49 @@
+{
+  "aws-provider": {
+    "candidate_notes": [
+      "resource/aws_lakeformation_resource_lf_tag: Fix crash during refresh when an LF-Tag assignment has been removed outside Terraform ([#50626](https://github.com/hashicorp/terraform-provider-aws/issues/50626))"
+    ],
+    "id": "aws-provider",
+    "published_at": "2026-10-28T20:18:57Z",
+    "source": "https://api.github.com/repos/hashicorp/terraform-provider-aws/releases/latest",
+    "status": "OK",
+    "url": "https://github.com/hashicorp/terraform-provider-aws/releases/tag/v6.71.0",
+    "version": "v6.71.0"
+  },
+  "azurerm-provider": {
+    "candidate_notes": [],
+    "id": "azurerm-provider",
+    "published_at": "2026-10-29T14:59:45Z",
+    "source": "https://api.github.com/repos/hashicorp/terraform-provider-azurerm/releases/latest",
+    "status": "OK",
+    "url": "https://github.com/hashicorp/terraform-provider-azurerm/releases/tag/v5.12.0",
+    "version": "v5.12.0"
+  },
+  "google-provider": {
+    "candidate_notes": [
+      "container: deprecated `addons_config.parallelstore_csi_driver_config` on `google_container_cluster`. Use `addons_config.lustre_csi_driver_config` instead ([#30328](https://github.com/hashicorp/terraform-provider-google/pull/30328))",
+      "container: deprecated `remove_default_node_pool` on `google_container_cluster` in favor of omitting `initial_node_count` and `node_config` (or setting `initial_node_count = 0`). When this is set to `true` and the default node pool was not c",
+      "parallelstore: deprecated `google_parallelstore_instance`. Use `google_lustre_instance` instead ([#30328](https://github.com/hashicorp/terraform-provider-google/pull/30328))",
+      "container: updated `initial_node_count` on `google_container_cluster` so it can be removed from config or set to `null` without creating a diff while still respecting `0` when set in config ([#30375](https://github.com/hashicorp/terraform-p",
+      "provider: fixed a bug where `google_apikeys_key`, `google_assured_workloads_workload`, `google_cloudbuild_worker_pool`, `google_clouddeploy_delivery_pipeline`, `google_clouddeploy_target`, `google_container_aws_cluster`, `google_container_a",
+      "provider: fixed a bug where `google_apikeys_key`, `google_assured_workloads_workload`, `google_cloudbuild_worker_pool`, `google_clouddeploy_delivery_pipeline`, `google_clouddeploy_target`, `google_container_aws_cluster`, `google_container_a",
+      "provider: fixed a bug where `google_compute_firewall_policy_association`, `google_compute_firewall_policy_rule`, `google_compute_organization_security_policy_association`, `google_compute_organization_security_policy_rule`, `google_endpoint",
+      "provider: removed an extra sleep on IAM writes while several concurrent changes are happening, backoff and terminate for a longer window (90s + grace period) ([#30057](https://github.com/hashicorp/terraform-provider-google/pull/30057))"
+    ],
+    "id": "google-provider",
+    "published_at": "2026-10-27T17:27:09Z",
+    "source": "https://api.github.com/repos/hashicorp/terraform-provider-google/releases/latest",
+    "status": "OK",
+    "url": "https://github.com/hashicorp/terraform-provider-google/releases/tag/v8.9.0",
+    "version": "v8.9.0"
+  },
+  "terraform": {
+    "candidate_notes": [],
+    "id": "terraform",
+    "published_at": "2026-10-28T18:02:22Z",
+    "source": "https://api.github.com/repos/hashicorp/terraform/releases/latest",
+    "status": "OK",
+    "url": "https://github.com/hashicorp/terraform/releases/tag/v1.17.1",
+    "version": "v1.17.1"
+  }
+}

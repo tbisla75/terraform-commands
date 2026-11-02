@@ -1,292 +1,392 @@
-# OFFLINE OpenShift installer syntax: templates/openshift-ipi/agent-config.baremetal.yaml
+# Offline command / configuration reference: `templates/openshift-ipi/agent-config.baremetal.yaml`
 
-Local, standalone explanation of [original template](../templates/openshift-ipi/agent-config.baremetal.yaml). **Never include real pullSecret or private keys in Git.** This YAML is a supported-installer *starter*, not a production-ready or validated cluster design. Check selected OpenShift installer release schema before running.
+Generated from repository source by `tools/build_offline_reference.py`. **48 items**. This copy works offline. No commands were executed.
 
-## 1. `apiVersion` = `v1beta1`
+⚠️ **Version-aware reference, not a substitute for vendor docs.** Every individual command is preserved with purpose, flags, placeholders, expected output and risk. Ambiguous flags are marked as command-specific. Always verify flags against your installed CLI.
 
-**Source line:** 3. **Purpose:** Defines a field in the parent OpenShift Installer/AgentConfig API object; field validity is release- and platform-specific.
+**Original file:** [`templates/openshift-ipi/agent-config.baremetal.yaml`](../templates/openshift-ipi/agent-config.baremetal.yaml)
 
-**Full syntax:** YAML key `apiVersion` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+### 1. Configuration field apiVersion
 
-## 2. `kind` = `AgentConfig`
+**Source line:** 3. **Language:** yaml. **Full syntax:** apiVersion = v1beta1
 
-**Source line:** 4. **Purpose:** Defines a field in the parent OpenShift Installer/AgentConfig API object; field validity is release- and platform-specific.
+**What it does:** API/schema version of the Kubernetes/OpenShift resource or installer config.
 
-**Full syntax:** YAML key `kind` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-## 3. `metadata`
+### 2. Configuration field kind
 
-**Source line:** 5. **Purpose:** Metadata naming block; cluster identity and labels.
+**Source line:** 4. **Language:** yaml. **Full syntax:** kind = AgentConfig
 
-**Full syntax:** YAML key `metadata` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**What it does:** The resource type handled by the target API.
 
-## 4. `name` = `ocp-prod`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 6. **Purpose:** Resource or host identifier within its enclosing block.
+### 3. Configuration field metadata
 
-**Full syntax:** YAML key `name` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Source line:** 5. **Language:** yaml. **Full syntax:** metadata = 
 
-## 5. `rendezvousIP` = `192.0.2.21 # replace with reachable master-0 IP`
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Source line:** 7. **Purpose:** Bootstrap agent discovery endpoint; must be one reachable control-plane host.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Full syntax:** YAML key `rendezvousIP` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+### 4. Configuration field name
 
-## 6. `hosts`
+**Source line:** 6. **Language:** yaml. **Full syntax:** name = ocp-prod
 
-**Source line:** 8. **Purpose:** Agent-config machine inventory with unique NIC and boot disk.
+**What it does:** Resource/cluster/host identity in the enclosing object.
 
-**Full syntax:** YAML key `hosts` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-## 7. `hostname` = `master-0`
+### 5. Configuration field rendezvousIP
 
-**Source line:** 9. **Purpose:** Host machine DNS name and inventory identity.
+**Source line:** 7. **Language:** yaml. **Full syntax:** rendezvousIP = 192.0.2.21 # replace with reachable master-0 IP
 
-**Full syntax:** YAML key `hostname` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**What it does:** Agent-based bootstrap rendezvous endpoint.
 
-## 8. `role` = `master`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 10. **Purpose:** master or worker node function.
+### 6. Configuration field hosts
 
-**Full syntax:** YAML key `role` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Source line:** 8. **Language:** yaml. **Full syntax:** hosts = 
 
-## 9. `interfaces`
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Source line:** 11. **Purpose:** Physical NIC mapping by MAC and interface name.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Full syntax:** YAML key `interfaces` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+### 7. Configuration field hostname
 
-## 10. `name` = `eno1`
+**Source line:** 9. **Language:** yaml. **Full syntax:** hostname = master-0
 
-**Source line:** 12. **Purpose:** Resource or host identifier within its enclosing block.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Full syntax:** YAML key `name` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-## 11. `macAddress` = `"02:00:00:00:00:21"`
+### 8. Configuration field role
 
-**Source line:** 13. **Purpose:** Exact discovered NIC MAC per physical host.
+**Source line:** 10. **Language:** yaml. **Full syntax:** role = master
 
-**Full syntax:** YAML key `macAddress` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**What it does:** Selected node role or permissions context.
 
-## 12. `rootDeviceHints`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 14. **Purpose:** Hints to select disk on which RHCOS is installed; **destructive** to target disk.
+### 9. Configuration field interfaces
 
-**Full syntax:** YAML key `rootDeviceHints` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Source line:** 11. **Language:** yaml. **Full syntax:** interfaces = 
 
-## 13. `deviceName` = `/dev/sda`
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Source line:** 15. **Purpose:** Disk identifier; verify to prevent overwriting wrong disk.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Full syntax:** YAML key `deviceName` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+### 10. Configuration field name
 
-## 14. `hostname` = `master-1`
+**Source line:** 12. **Language:** yaml. **Full syntax:** name = eno1
 
-**Source line:** 16. **Purpose:** Host machine DNS name and inventory identity.
+**What it does:** Resource/cluster/host identity in the enclosing object.
 
-**Full syntax:** YAML key `hostname` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-## 15. `role` = `master`
+### 11. Configuration field macAddress
 
-**Source line:** 17. **Purpose:** master or worker node function.
+**Source line:** 13. **Language:** yaml. **Full syntax:** macAddress = "02:00:00:00:00:21"
 
-**Full syntax:** YAML key `role` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**What it does:** Physical NIC hardware address; must match actual node.
 
-## 16. `interfaces`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 18. **Purpose:** Physical NIC mapping by MAC and interface name.
+### 12. Configuration field rootDeviceHints
 
-**Full syntax:** YAML key `interfaces` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Source line:** 14. **Language:** yaml. **Full syntax:** rootDeviceHints = 
 
-## 17. `name` = `eno1`
+**What it does:** Target boot disk selector; wrong values can wipe another drive.
 
-**Source line:** 19. **Purpose:** Resource or host identifier within its enclosing block.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Full syntax:** YAML key `name` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+### 13. Configuration field deviceName
 
-## 18. `macAddress` = `"02:00:00:00:00:22"`
+**Source line:** 15. **Language:** yaml. **Full syntax:** deviceName = /dev/sda
 
-**Source line:** 20. **Purpose:** Exact discovered NIC MAC per physical host.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Full syntax:** YAML key `macAddress` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-## 19. `rootDeviceHints`
+### 14. Configuration field hostname
 
-**Source line:** 21. **Purpose:** Hints to select disk on which RHCOS is installed; **destructive** to target disk.
+**Source line:** 16. **Language:** yaml. **Full syntax:** hostname = master-1
 
-**Full syntax:** YAML key `rootDeviceHints` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-## 20. `deviceName` = `/dev/sda`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 22. **Purpose:** Disk identifier; verify to prevent overwriting wrong disk.
+### 15. Configuration field role
 
-**Full syntax:** YAML key `deviceName` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Source line:** 17. **Language:** yaml. **Full syntax:** role = master
 
-## 21. `hostname` = `master-2`
+**What it does:** Selected node role or permissions context.
 
-**Source line:** 23. **Purpose:** Host machine DNS name and inventory identity.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Full syntax:** YAML key `hostname` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+### 16. Configuration field interfaces
 
-## 22. `role` = `master`
+**Source line:** 18. **Language:** yaml. **Full syntax:** interfaces = 
 
-**Source line:** 24. **Purpose:** master or worker node function.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Full syntax:** YAML key `role` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-## 23. `interfaces`
+### 17. Configuration field name
 
-**Source line:** 25. **Purpose:** Physical NIC mapping by MAC and interface name.
+**Source line:** 19. **Language:** yaml. **Full syntax:** name = eno1
 
-**Full syntax:** YAML key `interfaces` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**What it does:** Resource/cluster/host identity in the enclosing object.
 
-## 24. `name` = `eno1`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 26. **Purpose:** Resource or host identifier within its enclosing block.
+### 18. Configuration field macAddress
 
-**Full syntax:** YAML key `name` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Source line:** 20. **Language:** yaml. **Full syntax:** macAddress = "02:00:00:00:00:22"
 
-## 25. `macAddress` = `"02:00:00:00:00:23"`
+**What it does:** Physical NIC hardware address; must match actual node.
 
-**Source line:** 27. **Purpose:** Exact discovered NIC MAC per physical host.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Full syntax:** YAML key `macAddress` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+### 19. Configuration field rootDeviceHints
 
-## 26. `rootDeviceHints`
+**Source line:** 21. **Language:** yaml. **Full syntax:** rootDeviceHints = 
 
-**Source line:** 28. **Purpose:** Hints to select disk on which RHCOS is installed; **destructive** to target disk.
+**What it does:** Target boot disk selector; wrong values can wipe another drive.
 
-**Full syntax:** YAML key `rootDeviceHints` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-## 27. `deviceName` = `/dev/sda`
+### 20. Configuration field deviceName
 
-**Source line:** 29. **Purpose:** Disk identifier; verify to prevent overwriting wrong disk.
+**Source line:** 22. **Language:** yaml. **Full syntax:** deviceName = /dev/sda
 
-**Full syntax:** YAML key `deviceName` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-## 28. `hostname` = `worker-0`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 30. **Purpose:** Host machine DNS name and inventory identity.
+### 21. Configuration field hostname
 
-**Full syntax:** YAML key `hostname` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Source line:** 23. **Language:** yaml. **Full syntax:** hostname = master-2
 
-## 29. `role` = `worker`
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Source line:** 31. **Purpose:** master or worker node function.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Full syntax:** YAML key `role` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+### 22. Configuration field role
 
-## 30. `interfaces`
+**Source line:** 24. **Language:** yaml. **Full syntax:** role = master
 
-**Source line:** 32. **Purpose:** Physical NIC mapping by MAC and interface name.
+**What it does:** Selected node role or permissions context.
 
-**Full syntax:** YAML key `interfaces` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-## 31. `name` = `eno1`
+### 23. Configuration field interfaces
 
-**Source line:** 33. **Purpose:** Resource or host identifier within its enclosing block.
+**Source line:** 25. **Language:** yaml. **Full syntax:** interfaces = 
 
-**Full syntax:** YAML key `name` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-## 32. `macAddress` = `"02:00:00:00:00:24"`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 34. **Purpose:** Exact discovered NIC MAC per physical host.
+### 24. Configuration field name
 
-**Full syntax:** YAML key `macAddress` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Source line:** 26. **Language:** yaml. **Full syntax:** name = eno1
 
-## 33. `rootDeviceHints`
+**What it does:** Resource/cluster/host identity in the enclosing object.
 
-**Source line:** 35. **Purpose:** Hints to select disk on which RHCOS is installed; **destructive** to target disk.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Full syntax:** YAML key `rootDeviceHints` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+### 25. Configuration field macAddress
 
-## 34. `deviceName` = `/dev/sda`
+**Source line:** 27. **Language:** yaml. **Full syntax:** macAddress = "02:00:00:00:00:23"
 
-**Source line:** 36. **Purpose:** Disk identifier; verify to prevent overwriting wrong disk.
+**What it does:** Physical NIC hardware address; must match actual node.
 
-**Full syntax:** YAML key `deviceName` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-## 35. `hostname` = `worker-1`
+### 26. Configuration field rootDeviceHints
 
-**Source line:** 37. **Purpose:** Host machine DNS name and inventory identity.
+**Source line:** 28. **Language:** yaml. **Full syntax:** rootDeviceHints = 
 
-**Full syntax:** YAML key `hostname` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**What it does:** Target boot disk selector; wrong values can wipe another drive.
 
-## 36. `role` = `worker`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 38. **Purpose:** master or worker node function.
+### 27. Configuration field deviceName
 
-**Full syntax:** YAML key `role` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Source line:** 29. **Language:** yaml. **Full syntax:** deviceName = /dev/sda
 
-## 37. `interfaces`
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Source line:** 39. **Purpose:** Physical NIC mapping by MAC and interface name.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Full syntax:** YAML key `interfaces` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+### 28. Configuration field hostname
 
-## 38. `name` = `eno1`
+**Source line:** 30. **Language:** yaml. **Full syntax:** hostname = worker-0
 
-**Source line:** 40. **Purpose:** Resource or host identifier within its enclosing block.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Full syntax:** YAML key `name` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-## 39. `macAddress` = `"02:00:00:00:00:25"`
+### 29. Configuration field role
 
-**Source line:** 41. **Purpose:** Exact discovered NIC MAC per physical host.
+**Source line:** 31. **Language:** yaml. **Full syntax:** role = worker
 
-**Full syntax:** YAML key `macAddress` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**What it does:** Selected node role or permissions context.
 
-## 40. `rootDeviceHints`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 42. **Purpose:** Hints to select disk on which RHCOS is installed; **destructive** to target disk.
+### 30. Configuration field interfaces
 
-**Full syntax:** YAML key `rootDeviceHints` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Source line:** 32. **Language:** yaml. **Full syntax:** interfaces = 
 
-## 41. `deviceName` = `/dev/sda`
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Source line:** 43. **Purpose:** Disk identifier; verify to prevent overwriting wrong disk.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Full syntax:** YAML key `deviceName` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+### 31. Configuration field name
 
-## 42. `hostname` = `worker-2`
+**Source line:** 33. **Language:** yaml. **Full syntax:** name = eno1
 
-**Source line:** 44. **Purpose:** Host machine DNS name and inventory identity.
+**What it does:** Resource/cluster/host identity in the enclosing object.
 
-**Full syntax:** YAML key `hostname` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-## 43. `role` = `worker`
+### 32. Configuration field macAddress
 
-**Source line:** 45. **Purpose:** master or worker node function.
+**Source line:** 34. **Language:** yaml. **Full syntax:** macAddress = "02:00:00:00:00:24"
 
-**Full syntax:** YAML key `role` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**What it does:** Physical NIC hardware address; must match actual node.
 
-## 44. `interfaces`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 46. **Purpose:** Physical NIC mapping by MAC and interface name.
+### 33. Configuration field rootDeviceHints
 
-**Full syntax:** YAML key `interfaces` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Source line:** 35. **Language:** yaml. **Full syntax:** rootDeviceHints = 
 
-## 45. `name` = `eno1`
+**What it does:** Target boot disk selector; wrong values can wipe another drive.
 
-**Source line:** 47. **Purpose:** Resource or host identifier within its enclosing block.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Full syntax:** YAML key `name` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+### 34. Configuration field deviceName
 
-## 46. `macAddress` = `"02:00:00:00:00:26"`
+**Source line:** 36. **Language:** yaml. **Full syntax:** deviceName = /dev/sda
 
-**Source line:** 48. **Purpose:** Exact discovered NIC MAC per physical host.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Full syntax:** YAML key `macAddress` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-## 47. `rootDeviceHints`
+### 35. Configuration field hostname
 
-**Source line:** 49. **Purpose:** Hints to select disk on which RHCOS is installed; **destructive** to target disk.
+**Source line:** 37. **Language:** yaml. **Full syntax:** hostname = worker-1
 
-**Full syntax:** YAML key `rootDeviceHints` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-## 48. `deviceName` = `/dev/sda`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 50. **Purpose:** Disk identifier; verify to prevent overwriting wrong disk.
+### 36. Configuration field role
 
-**Full syntax:** YAML key `deviceName` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Source line:** 38. **Language:** yaml. **Full syntax:** role = worker
+
+**What it does:** Selected node role or permissions context.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 37. Configuration field interfaces
+
+**Source line:** 39. **Language:** yaml. **Full syntax:** interfaces = 
+
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 38. Configuration field name
+
+**Source line:** 40. **Language:** yaml. **Full syntax:** name = eno1
+
+**What it does:** Resource/cluster/host identity in the enclosing object.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 39. Configuration field macAddress
+
+**Source line:** 41. **Language:** yaml. **Full syntax:** macAddress = "02:00:00:00:00:25"
+
+**What it does:** Physical NIC hardware address; must match actual node.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 40. Configuration field rootDeviceHints
+
+**Source line:** 42. **Language:** yaml. **Full syntax:** rootDeviceHints = 
+
+**What it does:** Target boot disk selector; wrong values can wipe another drive.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 41. Configuration field deviceName
+
+**Source line:** 43. **Language:** yaml. **Full syntax:** deviceName = /dev/sda
+
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 42. Configuration field hostname
+
+**Source line:** 44. **Language:** yaml. **Full syntax:** hostname = worker-2
+
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 43. Configuration field role
+
+**Source line:** 45. **Language:** yaml. **Full syntax:** role = worker
+
+**What it does:** Selected node role or permissions context.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 44. Configuration field interfaces
+
+**Source line:** 46. **Language:** yaml. **Full syntax:** interfaces = 
+
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 45. Configuration field name
+
+**Source line:** 47. **Language:** yaml. **Full syntax:** name = eno1
+
+**What it does:** Resource/cluster/host identity in the enclosing object.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 46. Configuration field macAddress
+
+**Source line:** 48. **Language:** yaml. **Full syntax:** macAddress = "02:00:00:00:00:26"
+
+**What it does:** Physical NIC hardware address; must match actual node.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 47. Configuration field rootDeviceHints
+
+**Source line:** 49. **Language:** yaml. **Full syntax:** rootDeviceHints = 
+
+**What it does:** Target boot disk selector; wrong values can wipe another drive.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 48. Configuration field deviceName
+
+**Source line:** 50. **Language:** yaml. **Full syntax:** deviceName = /dev/sda
+
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 

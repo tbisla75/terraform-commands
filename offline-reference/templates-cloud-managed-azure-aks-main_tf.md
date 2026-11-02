@@ -1,238 +1,304 @@
-# Offline infrastructure template explanation: templates/cloud-managed/azure-aks/main.tf
+# Offline command / configuration reference: `templates/cloud-managed/azure-aks/main.tf`
 
-Source: [templates/cloud-managed/azure-aks/main.tf](../templates/cloud-managed/azure-aks/main.tf). These HCL/YAML settings have **no effect until an authorized provision/installer runs**. Review schema and provider compatibility with vendor documentation and obtain cost/change approval.
+Generated from repository source by `tools/build_offline_reference.py`. **43 items**. This copy works offline. No commands were executed.
 
-### 1. `required_version` = `">= 1.8.0"`
+⚠️ **Version-aware reference, not a substitute for vendor docs.** Every individual command is preserved with purpose, flags, placeholders, expected output and risk. Ambiguous flags are marked as command-specific. Always verify flags against your installed CLI.
 
-**Source line:** 3. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Original file:** [`templates/cloud-managed/azure-aks/main.tf`](../templates/cloud-managed/azure-aks/main.tf)
 
-**Syntax:** key `required_version` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+### 1. Configuration field required_version
 
-### 2. `azurerm` = `{ source = "hashicorp/azurerm", version = ">= 4.0, < 6.0" }`
+**Source line:** 3. **Language:** hcl. **Full syntax:** required_version = ">= 1.8.0"
 
-**Source line:** 5. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Syntax:** key `azurerm` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-## 3. provider azurerm 
+### 2. Configuration field azurerm
 
-**Purpose:** Terraform provider block. **Syntax:** provider keyword and quoted provider/type and optional local object name, followed by nested HCL attributes/blocks. **Dependency:** selected provider/module release schema and credentials. **Risk:** real cloud state changes on apply; a plan can expose sensitive state. Validate and inspect diffs before apply.
+**Source line:** 5. **Language:** hcl. **Full syntax:** azurerm = { source = "hashicorp/azurerm", version = ">= 4.0, < 6.0" }
 
-## 4. variable subscription_id 
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Purpose:** Terraform variable block. **Syntax:** variable keyword and quoted provider/type and optional local object name, followed by nested HCL attributes/blocks. **Dependency:** selected provider/module release schema and credentials. **Risk:** real cloud state changes on apply; a plan can expose sensitive state. Validate and inspect diffs before apply.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-## 5. variable resource_group_name 
+### 3. Terraform provider: `azurerm`
 
-**Purpose:** Terraform variable block. **Syntax:** variable keyword and quoted provider/type and optional local object name, followed by nested HCL attributes/blocks. **Dependency:** selected provider/module release schema and credentials. **Risk:** real cloud state changes on apply; a plan can expose sensitive state. Validate and inspect diffs before apply.
+**Source line:** 8. **Purpose:** Declare a provider object. Terraform validates provider schema, references and lifecycle during plan. **Safety:** Real changes require an approved apply; data sources can query provider APIs during plan. Confirm every resource argument against the installed provider schema.
 
-## 6. variable location 
+### 4. Terraform variable: `subscription_id`
 
-**Purpose:** Terraform variable block. **Syntax:** variable keyword and quoted provider/type and optional local object name, followed by nested HCL attributes/blocks. **Dependency:** selected provider/module release schema and credentials. **Risk:** real cloud state changes on apply; a plan can expose sensitive state. Validate and inspect diffs before apply.
+**Source line:** 9. **Purpose:** Declare a variable object. Terraform validates provider schema, references and lifecycle during plan. **Safety:** Real changes require an approved apply; data sources can query provider APIs during plan. Confirm every resource argument against the installed provider schema.
 
-## 7. variable cluster_name 
+### 5. Terraform variable: `resource_group_name`
 
-**Purpose:** Terraform variable block. **Syntax:** variable keyword and quoted provider/type and optional local object name, followed by nested HCL attributes/blocks. **Dependency:** selected provider/module release schema and credentials. **Risk:** real cloud state changes on apply; a plan can expose sensitive state. Validate and inspect diffs before apply.
+**Source line:** 10. **Purpose:** Declare a variable object. Terraform validates provider schema, references and lifecycle during plan. **Safety:** Real changes require an approved apply; data sources can query provider APIs during plan. Confirm every resource argument against the installed provider schema.
 
-## 8. variable vnet_subnet_id 
+### 6. Terraform variable: `location`
 
-**Purpose:** Terraform variable block. **Syntax:** variable keyword and quoted provider/type and optional local object name, followed by nested HCL attributes/blocks. **Dependency:** selected provider/module release schema and credentials. **Risk:** real cloud state changes on apply; a plan can expose sensitive state. Validate and inspect diffs before apply.
+**Source line:** 11. **Purpose:** Declare a variable object. Terraform validates provider schema, references and lifecycle during plan. **Safety:** Real changes require an approved apply; data sources can query provider APIs during plan. Confirm every resource argument against the installed provider schema.
 
-## 9. variable kubernetes_version 
+### 7. Terraform variable: `cluster_name`
 
-**Purpose:** Terraform variable block. **Syntax:** variable keyword and quoted provider/type and optional local object name, followed by nested HCL attributes/blocks. **Dependency:** selected provider/module release schema and credentials. **Risk:** real cloud state changes on apply; a plan can expose sensitive state. Validate and inspect diffs before apply.
+**Source line:** 12. **Purpose:** Declare a variable object. Terraform validates provider schema, references and lifecycle during plan. **Safety:** Real changes require an approved apply; data sources can query provider APIs during plan. Confirm every resource argument against the installed provider schema.
 
-## 10. variable admin_group_object_ids 
+### 8. Terraform variable: `vnet_subnet_id`
 
-**Purpose:** Terraform variable block. **Syntax:** variable keyword and quoted provider/type and optional local object name, followed by nested HCL attributes/blocks. **Dependency:** selected provider/module release schema and credentials. **Risk:** real cloud state changes on apply; a plan can expose sensitive state. Validate and inspect diffs before apply.
+**Source line:** 13. **Purpose:** Declare a variable object. Terraform validates provider schema, references and lifecycle during plan. **Safety:** Real changes require an approved apply; data sources can query provider APIs during plan. Confirm every resource argument against the installed provider schema.
 
-## 11. data azurerm_resource_group existing
+### 9. Terraform variable: `kubernetes_version`
 
-**Purpose:** Terraform data block. **Syntax:** data keyword and quoted provider/type and optional local object name, followed by nested HCL attributes/blocks. **Dependency:** selected provider/module release schema and credentials. **Risk:** real cloud state changes on apply; a plan can expose sensitive state. Validate and inspect diffs before apply.
+**Source line:** 14. **Purpose:** Declare a variable object. Terraform validates provider schema, references and lifecycle during plan. **Safety:** Real changes require an approved apply; data sources can query provider APIs during plan. Confirm every resource argument against the installed provider schema.
 
-## 12. resource azurerm_kubernetes_cluster this
+### 10. Terraform variable: `admin_group_object_ids`
 
-**Purpose:** Terraform resource block. **Syntax:** resource keyword and quoted provider/type and optional local object name, followed by nested HCL attributes/blocks. **Dependency:** selected provider/module release schema and credentials. **Risk:** real cloud state changes on apply; a plan can expose sensitive state. Validate and inspect diffs before apply.
+**Source line:** 15. **Purpose:** Declare a variable object. Terraform validates provider schema, references and lifecycle during plan. **Safety:** Real changes require an approved apply; data sources can query provider APIs during plan. Confirm every resource argument against the installed provider schema.
 
-### 13. `name` = `var.cluster_name`
+### 11. Terraform data: `azurerm_resource_group existing`
 
-**Source line:** 18. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Source line:** 16. **Purpose:** Declare a data object. Terraform validates provider schema, references and lifecycle during plan. **Safety:** Real changes require an approved apply; data sources can query provider APIs during plan. Confirm every resource argument against the installed provider schema.
 
-**Syntax:** key `name` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+### 12. Terraform resource: `azurerm_kubernetes_cluster this`
 
-### 14. `location` = `var.location`
+**Source line:** 17. **Purpose:** Declare a resource object. Terraform validates provider schema, references and lifecycle during plan. **Safety:** Real changes require an approved apply; data sources can query provider APIs during plan. Confirm every resource argument against the installed provider schema.
 
-**Source line:** 19. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+### 13. Configuration field name
 
-**Syntax:** key `location` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Source line:** 18. **Language:** hcl. **Full syntax:** name = var.cluster_name
 
-### 15. `resource_group_name` = `data.azurerm_resource_group.existing.name`
+**What it does:** Resource/cluster/host identity in the enclosing object.
 
-**Source line:** 20. **Meaning:** Azure resource group target.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Syntax:** key `resource_group_name` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+### 14. Configuration field location
 
-### 16. `dns_prefix` = `var.cluster_name`
+**Source line:** 19. **Language:** hcl. **Full syntax:** location = var.location
 
-**Source line:** 21. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Syntax:** key `dns_prefix` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-### 17. `kubernetes_version` = `var.kubernetes_version`
+### 15. Configuration field resource_group_name
 
-**Source line:** 22. **Meaning:** Supported version (must exist in selected cloud region).
+**Source line:** 20. **Language:** hcl. **Full syntax:** resource_group_name = data.azurerm_resource_group.existing.name
 
-**Syntax:** key `kubernetes_version` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-### 18. `private_cluster_enabled` = `true`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 23. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+### 16. Configuration field dns_prefix
 
-**Syntax:** key `private_cluster_enabled` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Source line:** 21. **Language:** hcl. **Full syntax:** dns_prefix = var.cluster_name
 
-### 19. `local_account_disabled` = `true`
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Source line:** 24. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Syntax:** key `local_account_disabled` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+### 17. Configuration field kubernetes_version
 
-### 20. `role_based_access_control_enabled` = `true`
+**Source line:** 22. **Language:** hcl. **Full syntax:** kubernetes_version = var.kubernetes_version
 
-**Source line:** 25. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**What it does:** Pinned target Kubernetes version supported by provider and region.
 
-**Syntax:** key `role_based_access_control_enabled` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-### 21. `sku_tier` = `"Standard"`
+### 18. Configuration field private_cluster_enabled
 
-**Source line:** 26. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Source line:** 23. **Language:** hcl. **Full syntax:** private_cluster_enabled = true
 
-**Syntax:** key `sku_tier` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-### 22. `oidc_issuer_enabled` = `true`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 27. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+### 19. Configuration field local_account_disabled
 
-**Syntax:** key `oidc_issuer_enabled` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Source line:** 24. **Language:** hcl. **Full syntax:** local_account_disabled = true
 
-### 23. `workload_identity_enabled` = `true`
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Source line:** 28. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Syntax:** key `workload_identity_enabled` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+### 20. Configuration field role_based_access_control_enabled
 
-### 24. `name` = `"system"`
+**Source line:** 25. **Language:** hcl. **Full syntax:** role_based_access_control_enabled = true
 
-**Source line:** 30. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Syntax:** key `name` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-### 25. `vm_size` = `"Standard_D4s_v5"`
+### 21. Configuration field sku_tier
 
-**Source line:** 31. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Source line:** 26. **Language:** hcl. **Full syntax:** sku_tier = "Standard"
 
-**Syntax:** key `vm_size` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-### 26. `node_count` = `3`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 32. **Meaning:** Node pool capacity; regional/zone semantics differ.
+### 22. Configuration field oidc_issuer_enabled
 
-**Syntax:** key `node_count` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Source line:** 27. **Language:** hcl. **Full syntax:** oidc_issuer_enabled = true
 
-### 27. `vnet_subnet_id` = `var.vnet_subnet_id`
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Source line:** 33. **Meaning:** Azure network subnet resource identifier.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Syntax:** key `vnet_subnet_id` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+### 23. Configuration field workload_identity_enabled
 
-### 28. `zones` = `["1", "2", "3"]`
+**Source line:** 28. **Language:** hcl. **Full syntax:** workload_identity_enabled = true
 
-**Source line:** 34. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Syntax:** key `zones` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-### 29. `max_pods` = `30`
+### 24. Configuration field name
 
-**Source line:** 35. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Source line:** 30. **Language:** hcl. **Full syntax:** name = "system"
 
-**Syntax:** key `max_pods` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**What it does:** Resource/cluster/host identity in the enclosing object.
 
-### 30. `only_critical_addons_enabled` = `true`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 36. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+### 25. Configuration field vm_size
 
-**Syntax:** key `only_critical_addons_enabled` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Source line:** 31. **Language:** hcl. **Full syntax:** vm_size = "Standard_D4s_v5"
 
-### 31. `network_plugin` = `"azure"`
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Source line:** 41. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Syntax:** key `network_plugin` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+### 26. Configuration field node_count
 
-### 32. `network_plugin_mode` = `"overlay"`
+**Source line:** 32. **Language:** hcl. **Full syntax:** node_count = 3
 
-**Source line:** 42. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**What it does:** Desired node pool size; check zone and cost semantics.
 
-**Syntax:** key `network_plugin_mode` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-### 33. `azure_rbac_enabled` = `true`
+### 27. Configuration field vnet_subnet_id
 
-**Source line:** 45. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Source line:** 33. **Language:** hcl. **Full syntax:** vnet_subnet_id = var.vnet_subnet_id
 
-**Syntax:** key `azure_rbac_enabled` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**What it does:** Azure VNet subnet resource ID.
 
-### 34. `admin_group_object_ids` = `var.admin_group_object_ids`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 46. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+### 28. Configuration field zones
 
-**Syntax:** key `admin_group_object_ids` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Source line:** 34. **Language:** hcl. **Full syntax:** zones = ["1", "2", "3"]
 
-## 35. resource azurerm_kubernetes_cluster_node_pool apps
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Purpose:** Terraform resource block. **Syntax:** resource keyword and quoted provider/type and optional local object name, followed by nested HCL attributes/blocks. **Dependency:** selected provider/module release schema and credentials. **Risk:** real cloud state changes on apply; a plan can expose sensitive state. Validate and inspect diffs before apply.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-### 36. `name` = `"apps"`
+### 29. Configuration field max_pods
 
-**Source line:** 50. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Source line:** 35. **Language:** hcl. **Full syntax:** max_pods = 30
 
-**Syntax:** key `name` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-### 37. `kubernetes_cluster_id` = `azurerm_kubernetes_cluster.this.id`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 51. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+### 30. Configuration field only_critical_addons_enabled
 
-**Syntax:** key `kubernetes_cluster_id` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Source line:** 36. **Language:** hcl. **Full syntax:** only_critical_addons_enabled = true
 
-### 38. `vm_size` = `"Standard_D4s_v5"`
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Source line:** 52. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Syntax:** key `vm_size` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+### 31. Configuration field network_plugin
 
-### 39. `node_count` = `3`
+**Source line:** 41. **Language:** hcl. **Full syntax:** network_plugin = "azure"
 
-**Source line:** 53. **Meaning:** Node pool capacity; regional/zone semantics differ.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Syntax:** key `node_count` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-### 40. `vnet_subnet_id` = `var.vnet_subnet_id`
+### 32. Configuration field network_plugin_mode
 
-**Source line:** 54. **Meaning:** Azure network subnet resource identifier.
+**Source line:** 42. **Language:** hcl. **Full syntax:** network_plugin_mode = "overlay"
 
-**Syntax:** key `vnet_subnet_id` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-### 41. `zones` = `["1", "2", "3"]`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 55. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+### 33. Configuration field azure_rbac_enabled
 
-**Syntax:** key `zones` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Source line:** 45. **Language:** hcl. **Full syntax:** azure_rbac_enabled = true
 
-### 42. `mode` = `"User"`
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Source line:** 56. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Syntax:** key `mode` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+### 34. Configuration field admin_group_object_ids
 
-## 43. output cluster_name 
+**Source line:** 46. **Language:** hcl. **Full syntax:** admin_group_object_ids = var.admin_group_object_ids
 
-**Purpose:** Terraform output block. **Syntax:** output keyword and quoted provider/type and optional local object name, followed by nested HCL attributes/blocks. **Dependency:** selected provider/module release schema and credentials. **Risk:** real cloud state changes on apply; a plan can expose sensitive state. Validate and inspect diffs before apply.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 35. Terraform resource: `azurerm_kubernetes_cluster_node_pool apps`
+
+**Source line:** 49. **Purpose:** Declare a resource object. Terraform validates provider schema, references and lifecycle during plan. **Safety:** Real changes require an approved apply; data sources can query provider APIs during plan. Confirm every resource argument against the installed provider schema.
+
+### 36. Configuration field name
+
+**Source line:** 50. **Language:** hcl. **Full syntax:** name = "apps"
+
+**What it does:** Resource/cluster/host identity in the enclosing object.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 37. Configuration field kubernetes_cluster_id
+
+**Source line:** 51. **Language:** hcl. **Full syntax:** kubernetes_cluster_id = azurerm_kubernetes_cluster.this.id
+
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 38. Configuration field vm_size
+
+**Source line:** 52. **Language:** hcl. **Full syntax:** vm_size = "Standard_D4s_v5"
+
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 39. Configuration field node_count
+
+**Source line:** 53. **Language:** hcl. **Full syntax:** node_count = 3
+
+**What it does:** Desired node pool size; check zone and cost semantics.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 40. Configuration field vnet_subnet_id
+
+**Source line:** 54. **Language:** hcl. **Full syntax:** vnet_subnet_id = var.vnet_subnet_id
+
+**What it does:** Azure VNet subnet resource ID.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 41. Configuration field zones
+
+**Source line:** 55. **Language:** hcl. **Full syntax:** zones = ["1", "2", "3"]
+
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 42. Configuration field mode
+
+**Source line:** 56. **Language:** hcl. **Full syntax:** mode = "User"
+
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 43. Terraform output: `cluster_name`
+
+**Source line:** 59. **Purpose:** Declare a output object. Terraform validates provider schema, references and lifecycle during plan. **Safety:** Real changes require an approved apply; data sources can query provider APIs during plan. Confirm every resource argument against the installed provider schema.
 

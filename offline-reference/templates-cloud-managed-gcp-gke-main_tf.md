@@ -1,270 +1,344 @@
-# Offline infrastructure template explanation: templates/cloud-managed/gcp-gke/main.tf
+# Offline command / configuration reference: `templates/cloud-managed/gcp-gke/main.tf`
 
-Source: [templates/cloud-managed/gcp-gke/main.tf](../templates/cloud-managed/gcp-gke/main.tf). These HCL/YAML settings have **no effect until an authorized provision/installer runs**. Review schema and provider compatibility with vendor documentation and obtain cost/change approval.
+Generated from repository source by `tools/build_offline_reference.py`. **49 items**. This copy works offline. No commands were executed.
 
-### 1. `required_version` = `">= 1.8.0"`
+⚠️ **Version-aware reference, not a substitute for vendor docs.** Every individual command is preserved with purpose, flags, placeholders, expected output and risk. Ambiguous flags are marked as command-specific. Always verify flags against your installed CLI.
 
-**Source line:** 3. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Original file:** [`templates/cloud-managed/gcp-gke/main.tf`](../templates/cloud-managed/gcp-gke/main.tf)
 
-**Syntax:** key `required_version` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+### 1. Configuration field required_version
 
-### 2. `google` = `{ source = "hashicorp/google", version = ">= 5.0, < 8.0" }`
+**Source line:** 3. **Language:** hcl. **Full syntax:** required_version = ">= 1.8.0"
 
-**Source line:** 5. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Syntax:** key `google` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-## 3. provider google 
+### 2. Configuration field google
 
-**Purpose:** Terraform provider block. **Syntax:** provider keyword and quoted provider/type and optional local object name, followed by nested HCL attributes/blocks. **Dependency:** selected provider/module release schema and credentials. **Risk:** real cloud state changes on apply; a plan can expose sensitive state. Validate and inspect diffs before apply.
+**Source line:** 5. **Language:** hcl. **Full syntax:** google = { source = "hashicorp/google", version = ">= 5.0, < 8.0" }
 
-### 4. `project` = `var.project_id`
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Source line:** 9. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Syntax:** key `project` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+### 3. Terraform provider: `google`
 
-### 5. `region` = `var.region`
+**Source line:** 8. **Purpose:** Declare a provider object. Terraform validates provider schema, references and lifecycle during plan. **Safety:** Real changes require an approved apply; data sources can query provider APIs during plan. Confirm every resource argument against the installed provider schema.
 
-**Source line:** 10. **Meaning:** Cloud region in which resources are created.
+### 4. Configuration field project
 
-**Syntax:** key `region` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Source line:** 9. **Language:** hcl. **Full syntax:** project = var.project_id
 
-## 6. variable project_id 
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Purpose:** Terraform variable block. **Syntax:** variable keyword and quoted provider/type and optional local object name, followed by nested HCL attributes/blocks. **Dependency:** selected provider/module release schema and credentials. **Risk:** real cloud state changes on apply; a plan can expose sensitive state. Validate and inspect diffs before apply.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-## 7. variable region 
+### 5. Configuration field region
 
-**Purpose:** Terraform variable block. **Syntax:** variable keyword and quoted provider/type and optional local object name, followed by nested HCL attributes/blocks. **Dependency:** selected provider/module release schema and credentials. **Risk:** real cloud state changes on apply; a plan can expose sensitive state. Validate and inspect diffs before apply.
+**Source line:** 10. **Language:** hcl. **Full syntax:** region = var.region
 
-## 8. variable cluster_name 
+**What it does:** Cloud region, availability and quota boundary.
 
-**Purpose:** Terraform variable block. **Syntax:** variable keyword and quoted provider/type and optional local object name, followed by nested HCL attributes/blocks. **Dependency:** selected provider/module release schema and credentials. **Risk:** real cloud state changes on apply; a plan can expose sensitive state. Validate and inspect diffs before apply.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-## 9. variable network 
+### 6. Terraform variable: `project_id`
 
-**Purpose:** Terraform variable block. **Syntax:** variable keyword and quoted provider/type and optional local object name, followed by nested HCL attributes/blocks. **Dependency:** selected provider/module release schema and credentials. **Risk:** real cloud state changes on apply; a plan can expose sensitive state. Validate and inspect diffs before apply.
+**Source line:** 12. **Purpose:** Declare a variable object. Terraform validates provider schema, references and lifecycle during plan. **Safety:** Real changes require an approved apply; data sources can query provider APIs during plan. Confirm every resource argument against the installed provider schema.
 
-## 10. variable subnetwork 
+### 7. Terraform variable: `region`
 
-**Purpose:** Terraform variable block. **Syntax:** variable keyword and quoted provider/type and optional local object name, followed by nested HCL attributes/blocks. **Dependency:** selected provider/module release schema and credentials. **Risk:** real cloud state changes on apply; a plan can expose sensitive state. Validate and inspect diffs before apply.
+**Source line:** 13. **Purpose:** Declare a variable object. Terraform validates provider schema, references and lifecycle during plan. **Safety:** Real changes require an approved apply; data sources can query provider APIs during plan. Confirm every resource argument against the installed provider schema.
 
-## 11. variable pods_secondary_range_name 
+### 8. Terraform variable: `cluster_name`
 
-**Purpose:** Terraform variable block. **Syntax:** variable keyword and quoted provider/type and optional local object name, followed by nested HCL attributes/blocks. **Dependency:** selected provider/module release schema and credentials. **Risk:** real cloud state changes on apply; a plan can expose sensitive state. Validate and inspect diffs before apply.
+**Source line:** 14. **Purpose:** Declare a variable object. Terraform validates provider schema, references and lifecycle during plan. **Safety:** Real changes require an approved apply; data sources can query provider APIs during plan. Confirm every resource argument against the installed provider schema.
 
-## 12. variable services_secondary_range_name 
+### 9. Terraform variable: `network`
 
-**Purpose:** Terraform variable block. **Syntax:** variable keyword and quoted provider/type and optional local object name, followed by nested HCL attributes/blocks. **Dependency:** selected provider/module release schema and credentials. **Risk:** real cloud state changes on apply; a plan can expose sensitive state. Validate and inspect diffs before apply.
+**Source line:** 15. **Purpose:** Declare a variable object. Terraform validates provider schema, references and lifecycle during plan. **Safety:** Real changes require an approved apply; data sources can query provider APIs during plan. Confirm every resource argument against the installed provider schema.
 
-## 13. variable release_channel 
+### 10. Terraform variable: `subnetwork`
 
-**Purpose:** Terraform variable block. **Syntax:** variable keyword and quoted provider/type and optional local object name, followed by nested HCL attributes/blocks. **Dependency:** selected provider/module release schema and credentials. **Risk:** real cloud state changes on apply; a plan can expose sensitive state. Validate and inspect diffs before apply.
+**Source line:** 16. **Purpose:** Declare a variable object. Terraform validates provider schema, references and lifecycle during plan. **Safety:** Real changes require an approved apply; data sources can query provider APIs during plan. Confirm every resource argument against the installed provider schema.
 
-### 14. `type` = `string`
+### 11. Terraform variable: `pods_secondary_range_name`
 
-**Source line:** 20. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Source line:** 17. **Purpose:** Declare a variable object. Terraform validates provider schema, references and lifecycle during plan. **Safety:** Real changes require an approved apply; data sources can query provider APIs during plan. Confirm every resource argument against the installed provider schema.
 
-**Syntax:** key `type` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+### 12. Terraform variable: `services_secondary_range_name`
 
-### 15. `default` = `"REGULAR"`
+**Source line:** 18. **Purpose:** Declare a variable object. Terraform validates provider schema, references and lifecycle during plan. **Safety:** Real changes require an approved apply; data sources can query provider APIs during plan. Confirm every resource argument against the installed provider schema.
 
-**Source line:** 21. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+### 13. Terraform variable: `release_channel`
 
-**Syntax:** key `default` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Source line:** 19. **Purpose:** Declare a variable object. Terraform validates provider schema, references and lifecycle during plan. **Safety:** Real changes require an approved apply; data sources can query provider APIs during plan. Confirm every resource argument against the installed provider schema.
 
-## 16. variable authorized_admin_cidrs 
+### 14. Configuration field type
 
-**Purpose:** Terraform variable block. **Syntax:** variable keyword and quoted provider/type and optional local object name, followed by nested HCL attributes/blocks. **Dependency:** selected provider/module release schema and credentials. **Risk:** real cloud state changes on apply; a plan can expose sensitive state. Validate and inspect diffs before apply.
+**Source line:** 20. **Language:** hcl. **Full syntax:** type = string
 
-## 17. variable node_service_account 
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Purpose:** Terraform variable block. **Syntax:** variable keyword and quoted provider/type and optional local object name, followed by nested HCL attributes/blocks. **Dependency:** selected provider/module release schema and credentials. **Risk:** real cloud state changes on apply; a plan can expose sensitive state. Validate and inspect diffs before apply.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-## 18. resource google_container_cluster this
+### 15. Configuration field default
 
-**Purpose:** Terraform resource block. **Syntax:** resource keyword and quoted provider/type and optional local object name, followed by nested HCL attributes/blocks. **Dependency:** selected provider/module release schema and credentials. **Risk:** real cloud state changes on apply; a plan can expose sensitive state. Validate and inspect diffs before apply.
+**Source line:** 21. **Language:** hcl. **Full syntax:** default = "REGULAR"
 
-### 19. `name` = `var.cluster_name`
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Source line:** 26. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Syntax:** key `name` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+### 16. Terraform variable: `authorized_admin_cidrs`
 
-### 20. `location` = `var.region`
+**Source line:** 23. **Purpose:** Declare a variable object. Terraform validates provider schema, references and lifecycle during plan. **Safety:** Real changes require an approved apply; data sources can query provider APIs during plan. Confirm every resource argument against the installed provider schema.
 
-**Source line:** 27. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+### 17. Terraform variable: `node_service_account`
 
-**Syntax:** key `location` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Source line:** 24. **Purpose:** Declare a variable object. Terraform validates provider schema, references and lifecycle during plan. **Safety:** Real changes require an approved apply; data sources can query provider APIs during plan. Confirm every resource argument against the installed provider schema.
 
-### 21. `network` = `var.network`
+### 18. Terraform resource: `google_container_cluster this`
 
-**Source line:** 28. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Source line:** 25. **Purpose:** Declare a resource object. Terraform validates provider schema, references and lifecycle during plan. **Safety:** Real changes require an approved apply; data sources can query provider APIs during plan. Confirm every resource argument against the installed provider schema.
 
-**Syntax:** key `network` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+### 19. Configuration field name
 
-### 22. `subnetwork` = `var.subnetwork`
+**Source line:** 26. **Language:** hcl. **Full syntax:** name = var.cluster_name
 
-**Source line:** 29. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**What it does:** Resource/cluster/host identity in the enclosing object.
 
-**Syntax:** key `subnetwork` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-### 23. `remove_default_node_pool` = `true`
+### 20. Configuration field location
 
-**Source line:** 30. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Source line:** 27. **Language:** hcl. **Full syntax:** location = var.region
 
-**Syntax:** key `remove_default_node_pool` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-### 24. `initial_node_count` = `1`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 31. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+### 21. Configuration field network
 
-**Syntax:** key `initial_node_count` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Source line:** 28. **Language:** hcl. **Full syntax:** network = var.network
 
-### 25. `cluster_secondary_range_name` = `var.pods_secondary_range_name`
+**What it does:** Cloud network/VPC or cluster network selector.
 
-**Source line:** 34. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Syntax:** key `cluster_secondary_range_name` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+### 22. Configuration field subnetwork
 
-### 26. `services_secondary_range_name` = `var.services_secondary_range_name`
+**Source line:** 29. **Language:** hcl. **Full syntax:** subnetwork = var.subnetwork
 
-**Source line:** 35. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Syntax:** key `services_secondary_range_name` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-### 27. `enable_private_nodes` = `true`
+### 23. Configuration field remove_default_node_pool
 
-**Source line:** 38. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Source line:** 30. **Language:** hcl. **Full syntax:** remove_default_node_pool = true
 
-**Syntax:** key `enable_private_nodes` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-### 28. `enable_private_endpoint` = `false`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 39. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+### 24. Configuration field initial_node_count
 
-**Syntax:** key `enable_private_endpoint` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Source line:** 31. **Language:** hcl. **Full syntax:** initial_node_count = 1
 
-### 29. `master_ipv4_cidr_block` = `"172.16.0.0/28" # must not overlap VPC/on-prem routes`
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Source line:** 40. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Syntax:** key `master_ipv4_cidr_block` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+### 25. Configuration field cluster_secondary_range_name
 
-### 30. `for_each` = `var.authorized_admin_cidrs`
+**Source line:** 34. **Language:** hcl. **Full syntax:** cluster_secondary_range_name = var.pods_secondary_range_name
 
-**Source line:** 44. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Syntax:** key `for_each` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-### 31. `cidr_block` = `cidr_blocks.value`
+### 26. Configuration field services_secondary_range_name
 
-**Source line:** 46. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Source line:** 35. **Language:** hcl. **Full syntax:** services_secondary_range_name = var.services_secondary_range_name
 
-**Syntax:** key `cidr_block` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-### 32. `display_name` = `"approved-administrator"`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 47. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+### 27. Configuration field enable_private_nodes
 
-**Syntax:** key `display_name` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Source line:** 38. **Language:** hcl. **Full syntax:** enable_private_nodes = true
 
-### 33. `workload_pool` = `"${var.project_id}.svc.id.goog"`
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Source line:** 52. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Syntax:** key `workload_pool` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+### 28. Configuration field enable_private_endpoint
 
-### 34. `logging_service` = `"logging.googleapis.com/kubernetes"`
+**Source line:** 39. **Language:** hcl. **Full syntax:** enable_private_endpoint = false
 
-**Source line:** 54. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Syntax:** key `logging_service` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-### 35. `monitoring_service` = `"monitoring.googleapis.com/kubernetes"`
+### 29. Configuration field master_ipv4_cidr_block
 
-**Source line:** 55. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Source line:** 40. **Language:** hcl. **Full syntax:** master_ipv4_cidr_block = "172.16.0.0/28"
 
-**Syntax:** key `monitoring_service` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-### 36. `deletion_protection` = `true`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 56. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+### 30. Configuration field for_each
 
-**Syntax:** key `deletion_protection` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Source line:** 44. **Language:** hcl. **Full syntax:** for_each = var.authorized_admin_cidrs
 
-## 37. resource google_container_node_pool apps
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Purpose:** Terraform resource block. **Syntax:** resource keyword and quoted provider/type and optional local object name, followed by nested HCL attributes/blocks. **Dependency:** selected provider/module release schema and credentials. **Risk:** real cloud state changes on apply; a plan can expose sensitive state. Validate and inspect diffs before apply.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-### 38. `name` = `"apps"`
+### 31. Configuration field cidr_block
 
-**Source line:** 59. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Source line:** 46. **Language:** hcl. **Full syntax:** cidr_block = cidr_blocks.value
 
-**Syntax:** key `name` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-### 39. `cluster` = `google_container_cluster.this.name`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 60. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+### 32. Configuration field display_name
 
-**Syntax:** key `cluster` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Source line:** 47. **Language:** hcl. **Full syntax:** display_name = "approved-administrator"
 
-### 40. `location` = `var.region`
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Source line:** 61. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Syntax:** key `location` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+### 33. Configuration field workload_pool
 
-### 41. `node_count` = `1 # per zone; 3 regional zones => 3 total nodes`
+**Source line:** 52. **Language:** hcl. **Full syntax:** workload_pool = "${var.project_id}.svc.id.goog"
 
-**Source line:** 62. **Meaning:** Node pool capacity; regional/zone semantics differ.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Syntax:** key `node_count` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-### 42. `auto_repair` = `true`
+### 34. Configuration field logging_service
 
-**Source line:** 64. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Source line:** 54. **Language:** hcl. **Full syntax:** logging_service = "logging.googleapis.com/kubernetes"
 
-**Syntax:** key `auto_repair` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-### 43. `auto_upgrade` = `true`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 65. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+### 35. Configuration field monitoring_service
 
-**Syntax:** key `auto_upgrade` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Source line:** 55. **Language:** hcl. **Full syntax:** monitoring_service = "monitoring.googleapis.com/kubernetes"
 
-### 44. `machine_type` = `"e2-standard-4"`
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Source line:** 68. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Syntax:** key `machine_type` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+### 36. Configuration field deletion_protection
 
-### 45. `service_account` = `var.node_service_account`
+**Source line:** 56. **Language:** hcl. **Full syntax:** deletion_protection = true
 
-**Source line:** 69. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Syntax:** key `service_account` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-### 46. `oauth_scopes` = `["https://www.googleapis.com/auth/cloud-platform"]`
+### 37. Terraform resource: `google_container_node_pool apps`
 
-**Source line:** 70. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Source line:** 58. **Purpose:** Declare a resource object. Terraform validates provider schema, references and lifecycle during plan. **Safety:** Real changes require an approved apply; data sources can query provider APIs during plan. Confirm every resource argument against the installed provider schema.
 
-**Syntax:** key `oauth_scopes` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+### 38. Configuration field name
 
-### 47. `enable_secure_boot` = `true`
+**Source line:** 59. **Language:** hcl. **Full syntax:** name = "apps"
 
-**Source line:** 73. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**What it does:** Resource/cluster/host identity in the enclosing object.
 
-**Syntax:** key `enable_secure_boot` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-### 48. `enable_integrity_monitoring` = `true`
+### 39. Configuration field cluster
 
-**Source line:** 74. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Source line:** 60. **Language:** hcl. **Full syntax:** cluster = google_container_cluster.this.name
 
-**Syntax:** key `enable_integrity_monitoring` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-## 49. output cluster_name 
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Purpose:** Terraform output block. **Syntax:** output keyword and quoted provider/type and optional local object name, followed by nested HCL attributes/blocks. **Dependency:** selected provider/module release schema and credentials. **Risk:** real cloud state changes on apply; a plan can expose sensitive state. Validate and inspect diffs before apply.
+### 40. Configuration field location
+
+**Source line:** 61. **Language:** hcl. **Full syntax:** location = var.region
+
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 41. Configuration field node_count
+
+**Source line:** 62. **Language:** hcl. **Full syntax:** node_count = 1
+
+**What it does:** Desired node pool size; check zone and cost semantics.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 42. Configuration field auto_repair
+
+**Source line:** 64. **Language:** hcl. **Full syntax:** auto_repair = true
+
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 43. Configuration field auto_upgrade
+
+**Source line:** 65. **Language:** hcl. **Full syntax:** auto_upgrade = true
+
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 44. Configuration field machine_type
+
+**Source line:** 68. **Language:** hcl. **Full syntax:** machine_type = "e2-standard-4"
+
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 45. Configuration field service_account
+
+**Source line:** 69. **Language:** hcl. **Full syntax:** service_account = var.node_service_account
+
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 46. Configuration field oauth_scopes
+
+**Source line:** 70. **Language:** hcl. **Full syntax:** oauth_scopes = ["https://www.googleapis.com/auth/cloud-platform"]
+
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 47. Configuration field enable_secure_boot
+
+**Source line:** 73. **Language:** hcl. **Full syntax:** enable_secure_boot = true
+
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 48. Configuration field enable_integrity_monitoring
+
+**Source line:** 74. **Language:** hcl. **Full syntax:** enable_integrity_monitoring = true
+
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 49. Terraform output: `cluster_name`
+
+**Source line:** 78. **Purpose:** Declare a output object. Terraform validates provider schema, references and lifecycle during plan. **Safety:** Real changes require an approved apply; data sources can query provider APIs during plan. Confirm every resource argument against the installed provider schema.
 
