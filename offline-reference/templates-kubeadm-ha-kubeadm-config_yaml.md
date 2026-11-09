@@ -1,124 +1,168 @@
-# Offline infrastructure template explanation: templates/kubeadm-ha/kubeadm-config.yaml
+# Offline command / configuration reference: `templates/kubeadm-ha/kubeadm-config.yaml`
 
-Source: [templates/kubeadm-ha/kubeadm-config.yaml](../templates/kubeadm-ha/kubeadm-config.yaml). These HCL/YAML settings have **no effect until an authorized provision/installer runs**. Review schema and provider compatibility with vendor documentation and obtain cost/change approval.
+Generated from repository source by `tools/build_offline_reference.py`. **20 items**. This copy works offline. No commands were executed.
 
-### 1. `apiVersion` = `kubeadm.k8s.io/v1beta4`
+⚠️ **Version-aware reference, not a substitute for vendor docs.** Every individual command is preserved with purpose, flags, placeholders, expected output and risk. Ambiguous flags are marked as command-specific. Always verify flags against your installed CLI.
 
-**Source line:** 3. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Original file:** [`templates/kubeadm-ha/kubeadm-config.yaml`](../templates/kubeadm-ha/kubeadm-config.yaml)
 
-**Syntax:** key `apiVersion` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+### 1. Configuration field apiVersion
 
-### 2. `kind` = `InitConfiguration`
+**Source line:** 3. **Language:** yaml. **Full syntax:** apiVersion = kubeadm.k8s.io/v1beta4
 
-**Source line:** 4. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**What it does:** API/schema version of the Kubernetes/OpenShift resource or installer config.
 
-**Syntax:** key `kind` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-### 3. `nodeRegistration` = ``
+### 2. Configuration field kind
 
-**Source line:** 5. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Source line:** 4. **Language:** yaml. **Full syntax:** kind = InitConfiguration
 
-**Syntax:** key `nodeRegistration` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**What it does:** The resource type handled by the target API.
 
-### 4. `criSocket` = `unix:///run/containerd/containerd.sock`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 6. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+### 3. Configuration field nodeRegistration
 
-**Syntax:** key `criSocket` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Source line:** 5. **Language:** yaml. **Full syntax:** nodeRegistration = 
 
-### 5. `apiVersion` = `kubeadm.k8s.io/v1beta4`
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Source line:** 8. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Syntax:** key `apiVersion` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+### 4. Configuration field criSocket
 
-### 6. `kind` = `ClusterConfiguration`
+**Source line:** 6. **Language:** yaml. **Full syntax:** criSocket = unix:///run/containerd/containerd.sock
 
-**Source line:** 9. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Syntax:** key `kind` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-### 7. `kubernetesVersion` = `v1.37.0 # choose an actually published supported patch and test version skew`
+### 5. Configuration field apiVersion
 
-**Source line:** 10. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Source line:** 8. **Language:** yaml. **Full syntax:** apiVersion = kubeadm.k8s.io/v1beta4
 
-**Syntax:** key `kubernetesVersion` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**What it does:** API/schema version of the Kubernetes/OpenShift resource or installer config.
 
-### 8. `controlPlaneEndpoint` = `"k8s-api.example.internal:6443"`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 11. **Meaning:** Stable HA API endpoint resolved to external control-plane load balancer.
+### 6. Configuration field kind
 
-**Syntax:** key `controlPlaneEndpoint` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Source line:** 9. **Language:** yaml. **Full syntax:** kind = ClusterConfiguration
 
-### 9. `clusterName` = `enterprise-k8s`
+**What it does:** The resource type handled by the target API.
 
-**Source line:** 12. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Syntax:** key `clusterName` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+### 7. Configuration field kubernetesVersion
 
-### 10. `networking` = ``
+**Source line:** 10. **Language:** yaml. **Full syntax:** kubernetesVersion = v1.37.0 # choose an actually published supported patch and test version skew
 
-**Source line:** 13. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**What it does:** Requested kubeadm cluster version.
 
-**Syntax:** key `networking` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-### 11. `podSubnet` = `"10.244.0.0/16" # must match selected CNI`
+### 8. Configuration field controlPlaneEndpoint
 
-**Source line:** 14. **Meaning:** CIDR used for pods; must match CNI and not overlap networks.
+**Source line:** 11. **Language:** yaml. **Full syntax:** controlPlaneEndpoint = "k8s-api.example.internal:6443"
 
-**Syntax:** key `podSubnet` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**What it does:** Stable HA load balancer endpoint for Kubernetes API.
 
-### 12. `serviceSubnet` = `"10.96.0.0/12"`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 15. **Meaning:** Service VIP range; must not overlap pods/on-prem.
+### 9. Configuration field clusterName
 
-**Syntax:** key `serviceSubnet` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Source line:** 12. **Language:** yaml. **Full syntax:** clusterName = enterprise-k8s
 
-### 13. `dnsDomain` = `"cluster.local"`
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Source line:** 16. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Syntax:** key `dnsDomain` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+### 10. Configuration field networking
 
-### 14. `apiServer` = ``
+**Source line:** 13. **Language:** yaml. **Full syntax:** networking = 
 
-**Source line:** 17. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Syntax:** key `apiServer` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-### 15. `certSANs` = ``
+### 11. Configuration field podSubnet
 
-**Source line:** 18. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Source line:** 14. **Language:** yaml. **Full syntax:** podSubnet = "10.244.0.0/16" # must match selected CNI
 
-**Syntax:** key `certSANs` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-### 16. `controllerManager` = `{}`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 21. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+### 12. Configuration field serviceSubnet
 
-**Syntax:** key `controllerManager` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Source line:** 15. **Language:** yaml. **Full syntax:** serviceSubnet = "10.96.0.0/12"
 
-### 17. `scheduler` = `{}`
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Source line:** 22. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Syntax:** key `scheduler` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+### 13. Configuration field dnsDomain
 
-### 18. `apiVersion` = `kubelet.config.k8s.io/v1beta1`
+**Source line:** 16. **Language:** yaml. **Full syntax:** dnsDomain = "cluster.local"
 
-**Source line:** 24. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Syntax:** key `apiVersion` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-### 19. `kind` = `KubeletConfiguration`
+### 14. Configuration field apiServer
 
-**Source line:** 25. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Source line:** 17. **Language:** yaml. **Full syntax:** apiServer = 
 
-**Syntax:** key `kind` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-### 20. `cgroupDriver` = `systemd`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 26. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+### 15. Configuration field certSANs
 
-**Syntax:** key `cgroupDriver` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Source line:** 18. **Language:** yaml. **Full syntax:** certSANs = 
+
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 16. Configuration field controllerManager
+
+**Source line:** 21. **Language:** yaml. **Full syntax:** controllerManager = {}
+
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 17. Configuration field scheduler
+
+**Source line:** 22. **Language:** yaml. **Full syntax:** scheduler = {}
+
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 18. Configuration field apiVersion
+
+**Source line:** 24. **Language:** yaml. **Full syntax:** apiVersion = kubelet.config.k8s.io/v1beta1
+
+**What it does:** API/schema version of the Kubernetes/OpenShift resource or installer config.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 19. Configuration field kind
+
+**Source line:** 25. **Language:** yaml. **Full syntax:** kind = KubeletConfiguration
+
+**What it does:** The resource type handled by the target API.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 20. Configuration field cgroupDriver
+
+**Source line:** 26. **Language:** yaml. **Full syntax:** cgroupDriver = systemd
+
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 

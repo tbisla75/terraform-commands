@@ -1,148 +1,200 @@
-# OFFLINE OpenShift installer syntax: templates/openshift-ipi/install-config.baremetal-agent.yaml
+# Offline command / configuration reference: `templates/openshift-ipi/install-config.baremetal-agent.yaml`
 
-Local, standalone explanation of [original template](../templates/openshift-ipi/install-config.baremetal-agent.yaml). **Never include real pullSecret or private keys in Git.** This YAML is a supported-installer *starter*, not a production-ready or validated cluster design. Check selected OpenShift installer release schema before running.
+Generated from repository source by `tools/build_offline_reference.py`. **24 items**. This copy works offline. No commands were executed.
 
-## 1. `apiVersion` = `v1`
+⚠️ **Version-aware reference, not a substitute for vendor docs.** Every individual command is preserved with purpose, flags, placeholders, expected output and risk. Ambiguous flags are marked as command-specific. Always verify flags against your installed CLI.
 
-**Source line:** 3. **Purpose:** Defines a field in the parent OpenShift Installer/AgentConfig API object; field validity is release- and platform-specific.
+**Original file:** [`templates/openshift-ipi/install-config.baremetal-agent.yaml`](../templates/openshift-ipi/install-config.baremetal-agent.yaml)
 
-**Full syntax:** YAML key `apiVersion` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+### 1. Configuration field apiVersion
 
-## 2. `baseDomain` = `example.internal`
+**Source line:** 3. **Language:** yaml. **Full syntax:** apiVersion = v1
 
-**Source line:** 4. **Purpose:** DNS domain under which OpenShift API and application names are created.
+**What it does:** API/schema version of the Kubernetes/OpenShift resource or installer config.
 
-**Full syntax:** YAML key `baseDomain` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-## 3. `metadata`
+### 2. Configuration field baseDomain
 
-**Source line:** 5. **Purpose:** Metadata naming block; cluster identity and labels.
+**Source line:** 4. **Language:** yaml. **Full syntax:** baseDomain = example.internal
 
-**Full syntax:** YAML key `metadata` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**What it does:** DNS zone for OpenShift cluster API and application names.
 
-## 4. `name` = `ocp-prod`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 6. **Purpose:** Resource or host identifier within its enclosing block.
+### 3. Configuration field metadata
 
-**Full syntax:** YAML key `name` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Source line:** 5. **Language:** yaml. **Full syntax:** metadata = 
 
-## 5. `compute`
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Source line:** 7. **Purpose:** Worker node pool specification.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Full syntax:** YAML key `compute` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+### 4. Configuration field name
 
-## 6. `name` = `worker`
+**Source line:** 6. **Language:** yaml. **Full syntax:** name = ocp-prod
 
-**Source line:** 8. **Purpose:** Resource or host identifier within its enclosing block.
+**What it does:** Resource/cluster/host identity in the enclosing object.
 
-**Full syntax:** YAML key `name` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-## 7. `replicas` = `3`
+### 5. Configuration field compute
 
-**Source line:** 9. **Purpose:** Number of corresponding worker/master nodes.
+**Source line:** 7. **Language:** yaml. **Full syntax:** compute = 
 
-**Full syntax:** YAML key `replicas` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-## 8. `controlPlane`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 10. **Purpose:** Master/control plane node sizing and replicas.
+### 6. Configuration field name
 
-**Full syntax:** YAML key `controlPlane` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Source line:** 8. **Language:** yaml. **Full syntax:** name = worker
 
-## 9. `name` = `master`
+**What it does:** Resource/cluster/host identity in the enclosing object.
 
-**Source line:** 11. **Purpose:** Resource or host identifier within its enclosing block.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Full syntax:** YAML key `name` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+### 7. Configuration field replicas
 
-## 10. `replicas` = `3`
+**Source line:** 9. **Language:** yaml. **Full syntax:** replicas = 3
 
-**Source line:** 12. **Purpose:** Number of corresponding worker/master nodes.
+**What it does:** Desired count of worker, master or application instances; assess quorum/headroom.
 
-**Full syntax:** YAML key `replicas` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-## 11. `networking`
+### 8. Configuration field controlPlane
 
-**Source line:** 13. **Purpose:** Pod/service/machine CIDR and CNI settings.
+**Source line:** 10. **Language:** yaml. **Full syntax:** controlPlane = 
 
-**Full syntax:** YAML key `networking` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-## 12. `networkType` = `OVNKubernetes`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 14. **Purpose:** Network plugin used by OpenShift.
+### 9. Configuration field name
 
-**Full syntax:** YAML key `networkType` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Source line:** 11. **Language:** yaml. **Full syntax:** name = master
 
-## 13. `machineNetwork`
+**What it does:** Resource/cluster/host identity in the enclosing object.
 
-**Source line:** 15. **Purpose:** Routable machine address range; must match physical subnet.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Full syntax:** YAML key `machineNetwork` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+### 10. Configuration field replicas
 
-## 14. `cidr` = `192.0.2.0/24 # documentation-only; replace with actual routable customer CIDR`
+**Source line:** 12. **Language:** yaml. **Full syntax:** replicas = 3
 
-**Source line:** 16. **Purpose:** Defines a field in the parent OpenShift Installer/AgentConfig API object; field validity is release- and platform-specific.
+**What it does:** Desired count of worker, master or application instances; assess quorum/headroom.
 
-**Full syntax:** YAML key `cidr` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-## 15. `clusterNetwork`
+### 11. Configuration field networking
 
-**Source line:** 17. **Purpose:** Overlay/Pod IP pool.
+**Source line:** 13. **Language:** yaml. **Full syntax:** networking = 
 
-**Full syntax:** YAML key `clusterNetwork` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-## 16. `cidr` = `10.128.0.0/14`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 18. **Purpose:** Defines a field in the parent OpenShift Installer/AgentConfig API object; field validity is release- and platform-specific.
+### 12. Configuration field networkType
 
-**Full syntax:** YAML key `cidr` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Source line:** 14. **Language:** yaml. **Full syntax:** networkType = OVNKubernetes
 
-## 17. `hostPrefix` = `23`
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Source line:** 19. **Purpose:** Defines a field in the parent OpenShift Installer/AgentConfig API object; field validity is release- and platform-specific.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Full syntax:** YAML key `hostPrefix` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+### 13. Configuration field machineNetwork
 
-## 18. `serviceNetwork`
+**Source line:** 15. **Language:** yaml. **Full syntax:** machineNetwork = 
 
-**Source line:** 20. **Purpose:** Cluster Service VIP subnet.
+**What it does:** CIDR of physical/VM machines.
 
-**Full syntax:** YAML key `serviceNetwork` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-## 19. `platform`
+### 14. Configuration field cidr
 
-**Source line:** 22. **Purpose:** Cloud or bare-metal infrastructure provider selection.
+**Source line:** 16. **Language:** yaml. **Full syntax:** cidr = 192.0.2.0/24 # documentation-only; replace with actual routable customer CIDR
 
-**Full syntax:** YAML key `platform` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-## 20. `baremetal`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 23. **Purpose:** Defines a field in the parent OpenShift Installer/AgentConfig API object; field validity is release- and platform-specific.
+### 15. Configuration field clusterNetwork
 
-**Full syntax:** YAML key `baremetal` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Source line:** 17. **Language:** yaml. **Full syntax:** clusterNetwork = 
 
-## 21. `apiVIPs`
+**What it does:** Pod overlay IP addresses; avoid overlap.
 
-**Source line:** 24. **Purpose:** OpenShift API virtual IPs; reachable and reserved.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Full syntax:** YAML key `apiVIPs` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+### 16. Configuration field cidr
 
-## 22. `ingressVIPs`
+**Source line:** 18. **Language:** yaml. **Full syntax:** cidr = 10.128.0.0/14
 
-**Source line:** 26. **Purpose:** Application ingress router virtual IPs.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Full syntax:** YAML key `ingressVIPs` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-## 23. `pullSecret` = `'REPLACE_WITH_VALID_REDHAT_PULL_SECRET_JSON'`
+### 17. Configuration field hostPrefix
 
-**Source line:** 28. **Purpose:** Sensitive registry entitlement and authentication JSON; never publish real value.
+**Source line:** 19. **Language:** yaml. **Full syntax:** hostPrefix = 23
 
-**Full syntax:** YAML key `pullSecret` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-## 24. `sshKey` = `'ssh-ed25519 REPLACE_WITH_PUBLIC_KEY'`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 29. **Purpose:** Public operator SSH key, never a private key.
+### 18. Configuration field serviceNetwork
 
-**Full syntax:** YAML key `sshKey` with scalar/list/map data; whitespace indentation, hyphen list markers and parent object determine interpretation. **Expected behavior:** only after installer consumes the config. **Safety:** protect cluster network, credentials, BMC/disk selections and avoid address overlap. Verify in matching installer docs.
+**Source line:** 20. **Language:** yaml. **Full syntax:** serviceNetwork = 
+
+**What it does:** Cluster Service IP pool; avoid overlap.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 19. Configuration field platform
+
+**Source line:** 22. **Language:** yaml. **Full syntax:** platform = 
+
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 20. Configuration field baremetal
+
+**Source line:** 23. **Language:** yaml. **Full syntax:** baremetal = 
+
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 21. Configuration field apiVIPs
+
+**Source line:** 24. **Language:** yaml. **Full syntax:** apiVIPs = 
+
+**What it does:** OpenShift control-plane API virtual IP.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 22. Configuration field ingressVIPs
+
+**Source line:** 26. **Language:** yaml. **Full syntax:** ingressVIPs = 
+
+**What it does:** OpenShift ingress/router virtual IP.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 23. Configuration field pullSecret
+
+**Source line:** 28. **Language:** yaml. **Full syntax:** pullSecret = 'REPLACE_WITH_VALID_REDHAT_PULL_SECRET_JSON'
+
+**What it does:** Sensitive Red Hat registry credential; NEVER commit a real value.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 24. Configuration field sshKey
+
+**Source line:** 29. **Language:** yaml. **Full syntax:** sshKey = 'ssh-ed25519 REPLACE_WITH_PUBLIC_KEY'
+
+**What it does:** Public operator SSH key; never provide a private key.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 

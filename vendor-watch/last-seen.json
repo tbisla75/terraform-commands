@@ -1,0 +1,40 @@
+{
+  "aws-provider": {
+    "candidate_notes": [],
+    "id": "aws-provider",
+    "published_at": "2026-11-04T21:20:08Z",
+    "source": "https://api.github.com/repos/hashicorp/terraform-provider-aws/releases/latest",
+    "status": "OK",
+    "url": "https://github.com/hashicorp/terraform-provider-aws/releases/tag/v6.72.0",
+    "version": "v6.72.0"
+  },
+  "azurerm-provider": {
+    "candidate_notes": [
+      "`azurerm_netapp_volume` - remove the default for `unix_permissions` as this prevented provisioning SMB or dual protocol volumes with NTFS security style ([#33766](https://github.com/hashicorp/terraform-provider-azurerm/issues/33766))"
+    ],
+    "id": "azurerm-provider",
+    "published_at": "2026-11-05T20:00:39Z",
+    "source": "https://api.github.com/repos/hashicorp/terraform-provider-azurerm/releases/latest",
+    "status": "OK",
+    "url": "https://github.com/hashicorp/terraform-provider-azurerm/releases/tag/v5.13.0",
+    "version": "v5.13.0"
+  },
+  "google-provider": {
+    "candidate_notes": [],
+    "id": "google-provider",
+    "published_at": "2026-11-03T19:22:15Z",
+    "source": "https://api.github.com/repos/hashicorp/terraform-provider-google/releases/latest",
+    "status": "OK",
+    "url": "https://github.com/hashicorp/terraform-provider-google/releases/tag/v8.10.0",
+    "version": "v8.10.0"
+  },
+  "terraform": {
+    "candidate_notes": [],
+    "id": "terraform",
+    "published_at": "2026-10-28T18:02:22Z",
+    "source": "https://api.github.com/repos/hashicorp/terraform/releases/latest",
+    "status": "OK",
+    "url": "https://github.com/hashicorp/terraform/releases/tag/v1.17.1",
+    "version": "v1.17.1"
+  }
+}
