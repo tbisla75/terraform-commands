@@ -1,0 +1,50 @@
+{
+  "aws-provider": {
+    "candidate_notes": [
+      "BREAKING CHANGES:",
+      "resource/aws_networksecuritymanager_rule: Fix the first apply of more than one rule in an account that has never used AWS Network Security Manager failing with `ConflictException: Account or org is already onboarded` ([#50807](https://githu"
+    ],
+    "id": "aws-provider",
+    "published_at": "2026-11-11T21:32:14Z",
+    "source": "https://api.github.com/repos/hashicorp/terraform-provider-aws/releases/latest",
+    "status": "OK",
+    "url": "https://github.com/hashicorp/terraform-provider-aws/releases/tag/v6.73.0",
+    "version": "v6.73.0"
+  },
+  "azurerm-provider": {
+    "candidate_notes": [
+      "`azurerm_kubernetes_cluster_node_pool` - add support for the `security` block ([#33837](https://github.com/hashicorp/terraform-provider-azurerm/issues/33837))",
+      "`azurerm_kubernetes_cluster` - add support for the `default_node_pool.security` block ([#33837](https://github.com/hashicorp/terraform-provider-azurerm/issues/33837))",
+      "`azurerm_role_assignment` - use deterministic generation for the `name` property to align with ARM, Bicep, and Azure CLI ([#32446](https://github.com/hashicorp/terraform-provider-azurerm/issues/32446))"
+    ],
+    "id": "azurerm-provider",
+    "published_at": "2026-11-13T16:47:27Z",
+    "source": "https://api.github.com/repos/hashicorp/terraform-provider-azurerm/releases/latest",
+    "status": "OK",
+    "url": "https://github.com/hashicorp/terraform-provider-azurerm/releases/tag/v5.14.0",
+    "version": "v5.14.0"
+  },
+  "google-provider": {
+    "candidate_notes": [
+      "vertexai: deprecated `optimized` on `google_vertex_ai_feature_online_store`. Use `bigtable` for online serving instead. ([#13700](https://github.com/hashicorp/terraform-provider-google-beta/pull/13700))",
+      "saasruntime: fixed `google_saas_runtime_release` deletion returning before the resource was removed (beta) ([#13729](https://github.com/hashicorp/terraform-provider-google-beta/pull/13729))",
+      "saasruntime: fixed `google_saas_runtime_rollout_kind` deletion returning before the resource was removed (beta) ([#13729](https://github.com/hashicorp/terraform-provider-google-beta/pull/13729))",
+      "saasruntime: fixed `google_saas_runtime_unit_kind` deletion returning before the resource was removed (beta) ([#13729](https://github.com/hashicorp/terraform-provider-google-beta/pull/13729))"
+    ],
+    "id": "google-provider",
+    "published_at": "2026-11-10T20:55:21Z",
+    "source": "https://api.github.com/repos/hashicorp/terraform-provider-google/releases/latest",
+    "status": "OK",
+    "url": "https://github.com/hashicorp/terraform-provider-google/releases/tag/v8.11.0",
+    "version": "v8.11.0"
+  },
+  "terraform": {
+    "candidate_notes": [],
+    "id": "terraform",
+    "published_at": "2026-11-11T11:56:51Z",
+    "source": "https://api.github.com/repos/hashicorp/terraform/releases/latest",
+    "status": "OK",
+    "url": "https://github.com/hashicorp/terraform/releases/tag/v1.17.2",
+    "version": "v1.17.2"
+  }
+}

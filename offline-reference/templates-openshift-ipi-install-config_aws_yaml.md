@@ -1,128 +1,184 @@
-# Offline infrastructure template explanation: templates/openshift-ipi/install-config.aws.yaml
+# Offline command / configuration reference: `templates/openshift-ipi/install-config.aws.yaml`
 
-Source: [templates/openshift-ipi/install-config.aws.yaml](../templates/openshift-ipi/install-config.aws.yaml). These HCL/YAML settings have **no effect until an authorized provision/installer runs**. Review schema and provider compatibility with vendor documentation and obtain cost/change approval.
+Generated from repository source by `tools/build_offline_reference.py`. **22 items**. This copy works offline. No commands were executed.
 
-### 1. `apiVersion` = `v1`
+⚠️ **Version-aware reference, not a substitute for vendor docs.** Every individual command is preserved with purpose, flags, placeholders, expected output and risk. Ambiguous flags are marked as command-specific. Always verify flags against your installed CLI.
 
-**Source line:** 3. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Original file:** [`templates/openshift-ipi/install-config.aws.yaml`](../templates/openshift-ipi/install-config.aws.yaml)
 
-**Syntax:** key `apiVersion` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+### 1. Configuration field apiVersion
 
-### 2. `baseDomain` = `example.com`
+**Source line:** 3. **Language:** yaml. **Full syntax:** apiVersion = v1
 
-**Source line:** 4. **Meaning:** Approved DNS root for cluster and API/app names.
+**What it does:** API/schema version of the Kubernetes/OpenShift resource or installer config.
 
-**Syntax:** key `baseDomain` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-### 3. `metadata` = ``
+### 2. Configuration field baseDomain
 
-**Source line:** 5. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Source line:** 4. **Language:** yaml. **Full syntax:** baseDomain = example.com
 
-**Syntax:** key `metadata` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**What it does:** DNS zone for OpenShift cluster API and application names.
 
-### 4. `name` = `ocp-prod`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 6. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+### 3. Configuration field metadata
 
-**Syntax:** key `name` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Source line:** 5. **Language:** yaml. **Full syntax:** metadata = 
 
-### 5. `compute` = ``
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Source line:** 7. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Syntax:** key `compute` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+### 4. Configuration field name
 
-### 6. List item `- name: worker`
+**Source line:** 6. **Language:** yaml. **Full syntax:** name = ocp-prod
 
-**Meaning:** names a component in a YAML sequence, scoped by indentation. Confirm control-plane vs worker semantics before installing.
+**What it does:** Resource/cluster/host identity in the enclosing object.
 
-### 7. `replicas` = `3`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 9. **Meaning:** Number of instances; plan quorum/headroom.
+### 5. Configuration field compute
 
-**Syntax:** key `replicas` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Source line:** 7. **Language:** yaml. **Full syntax:** compute = 
 
-### 8. `controlPlane` = ``
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Source line:** 10. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Syntax:** key `controlPlane` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+### 6. Configuration field name
 
-### 9. `name` = `master`
+**Source line:** 8. **Language:** yaml. **Full syntax:** name = worker
 
-**Source line:** 11. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**What it does:** Resource/cluster/host identity in the enclosing object.
 
-**Syntax:** key `name` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-### 10. `replicas` = `3`
+### 7. Configuration field replicas
 
-**Source line:** 12. **Meaning:** Number of instances; plan quorum/headroom.
+**Source line:** 9. **Language:** yaml. **Full syntax:** replicas = 3
 
-**Syntax:** key `replicas` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**What it does:** Desired count of worker, master or application instances; assess quorum/headroom.
 
-### 11. `platform` = ``
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 13. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+### 8. Configuration field controlPlane
 
-**Syntax:** key `platform` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Source line:** 10. **Language:** yaml. **Full syntax:** controlPlane = 
 
-### 12. `aws` = ``
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Source line:** 14. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Syntax:** key `aws` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+### 9. Configuration field name
 
-### 13. `region` = `eu-central-1`
+**Source line:** 11. **Language:** yaml. **Full syntax:** name = master
 
-**Source line:** 15. **Meaning:** Cloud region in which resources are created.
+**What it does:** Resource/cluster/host identity in the enclosing object.
 
-**Syntax:** key `region` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-### 14. `networking` = ``
+### 10. Configuration field replicas
 
-**Source line:** 18. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Source line:** 12. **Language:** yaml. **Full syntax:** replicas = 3
 
-**Syntax:** key `networking` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**What it does:** Desired count of worker, master or application instances; assess quorum/headroom.
 
-### 15. `networkType` = `OVNKubernetes`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 19. **Meaning:** Cluster CNI networking type for target OpenShift release.
+### 11. Configuration field platform
 
-**Syntax:** key `networkType` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Source line:** 13. **Language:** yaml. **Full syntax:** platform = 
 
-### 16. `clusterNetwork` = ``
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Source line:** 20. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Syntax:** key `clusterNetwork` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+### 12. Configuration field aws
 
-### 17. `hostPrefix` = `23`
+**Source line:** 14. **Language:** yaml. **Full syntax:** aws = 
 
-**Source line:** 22. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Syntax:** key `hostPrefix` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-### 18. `serviceNetwork` = ``
+### 13. Configuration field region
 
-**Source line:** 23. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**Source line:** 15. **Language:** yaml. **Full syntax:** region = eu-central-1
 
-**Syntax:** key `serviceNetwork` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**What it does:** Cloud region, availability and quota boundary.
 
-### 19. `pullSecret` = `'REPLACE_WITH_VALID_REDHAT_PULL_SECRET_JSON'`
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Source line:** 25. **Meaning:** Sensitive Red Hat registry authentication; NEVER commit a real value.
+### 14. Configuration field networking
 
-**Syntax:** key `pullSecret` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Source line:** 18. **Language:** yaml. **Full syntax:** networking = 
 
-### 20. `sshKey` = `'ssh-ed25519 REPLACE_WITH_PUBLIC_KEY'`
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Source line:** 26. **Meaning:** Public administrative SSH key (not private key).
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
-**Syntax:** key `sshKey` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+### 15. Configuration field networkType
 
-### 21. `publish` = `Internal`
+**Source line:** 19. **Language:** yaml. **Full syntax:** networkType = OVNKubernetes
 
-**Source line:** 27. **Meaning:** Configures the field in its parent Terraform resource or Kubernetes/OpenShift installer object; its meaning depends on parent block and installed schema.
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
 
-**Syntax:** key `publish` is assigned a typed HCL expression or YAML scalar/list item; nested indentation and blocks determine scope. **Expected effect:** changes the declared desired state only. **Before applying:** confirm that this is supported by the chosen release and does not expose credentials or replace/destroy resources.
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 16. Configuration field clusterNetwork
+
+**Source line:** 20. **Language:** yaml. **Full syntax:** clusterNetwork = 
+
+**What it does:** Pod overlay IP addresses; avoid overlap.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 17. Configuration field cidr
+
+**Source line:** 21. **Language:** yaml. **Full syntax:** cidr = 10.128.0.0/14
+
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 18. Configuration field hostPrefix
+
+**Source line:** 22. **Language:** yaml. **Full syntax:** hostPrefix = 23
+
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 19. Configuration field serviceNetwork
+
+**Source line:** 23. **Language:** yaml. **Full syntax:** serviceNetwork = 
+
+**What it does:** Cluster Service IP pool; avoid overlap.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 20. Configuration field pullSecret
+
+**Source line:** 25. **Language:** yaml. **Full syntax:** pullSecret = 'REPLACE_WITH_VALID_REDHAT_PULL_SECRET_JSON'
+
+**What it does:** Sensitive Red Hat registry credential; NEVER commit a real value.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 21. Configuration field sshKey
+
+**Source line:** 26. **Language:** yaml. **Full syntax:** sshKey = 'ssh-ed25519 REPLACE_WITH_PUBLIC_KEY'
+
+**What it does:** Public operator SSH key; never provide a private key.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
+
+### 22. Configuration field publish
+
+**Source line:** 27. **Language:** yaml. **Full syntax:** publish = Internal
+
+**What it does:** A versioned configuration argument in its enclosing resource/block. Confirm exact type, default, scope and supported values from the installed provider or API schema.
+
+**Expected effect:** Declarative value is only interpreted when the relevant tool applies, installs, builds or reconciles this configuration. **Safety:** Inspect enclosing object, secrets, permissions and lifecycle; validate schema and a test plan/dry-run before production. Do not assume this syntax exists on older releases.
 
